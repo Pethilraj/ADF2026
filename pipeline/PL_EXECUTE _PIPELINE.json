@@ -1,0 +1,27 @@
+{
+	"name": "PL_EXECUTE _PIPELINE",
+	"properties": {
+		"activities": [
+			{
+				"name": "Execute Pipeline1",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "PL_SWITCH",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": false,
+					"parameters": {
+						"ACTION": "COPY"
+					}
+				}
+			}
+		],
+		"annotations": []
+	}
+}
