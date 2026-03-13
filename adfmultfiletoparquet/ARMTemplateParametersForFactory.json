@@ -1,0 +1,249 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adfmultfiletoparquet"
+		},
+		"LS_LOOKUP_SQLTABLE_password": {
+			"value": ""
+		},
+		"LS_SERVER_ADLS_password": {
+			"value": ""
+		},
+		"LS_SINK_SQLTABLE_BLOB_SP_connectionString": {
+			"value": ""
+		},
+		"LS_SP_password": {
+			"value": ""
+		},
+		"LS_Sink_SqlServer_Adls_Parq_Migration_accountKey": {
+			"value": ""
+		},
+		"LS_Source_SqlServer_Adls_Migration_password": {
+			"value": ""
+		},
+		"SqlServer1_password": {
+			"value": ""
+		},
+		"ds_lookup_demo_sink_accountKey": {
+			"value": ""
+		},
+		"ds_source_password": {
+			"value": ""
+		},
+		"ls_adls_csv_accountKey": {
+			"value": ""
+		},
+		"ls_api_adls_parquet_accountKey": {
+			"value": ""
+		},
+		"ls_getmetadat_password": {
+			"value": ""
+		},
+		"ls_logging_accountKey": {
+			"value": ""
+		},
+		"ls_looku_demo_source_password": {
+			"value": ""
+		},
+		"ls_lookup_password": {
+			"value": ""
+		},
+		"ls_lookup2_password": {
+			"value": ""
+		},
+		"ls_lookup_demo_password": {
+			"value": ""
+		},
+		"ls_lookup_demo_sink_accountKey": {
+			"value": ""
+		},
+		"ls_lookup_demo_source_password": {
+			"value": ""
+		},
+		"ls_lookup_sink_accountKey": {
+			"value": ""
+		},
+		"ls_lookup_tablewise_password": {
+			"value": ""
+		},
+		"ls_multi_csv_accountKey": {
+			"value": ""
+		},
+		"ls_multi_parquet_accountKey": {
+			"value": ""
+		},
+		"ls_source_password": {
+			"value": ""
+		},
+		"ls_source_sql_server_adls_password": {
+			"value": ""
+		},
+		"LS_LOOKUP_SQLTABLE_properties_typeProperties_server": {
+			"value": "DESKTOP-00IFFIA\\SQLEXPRESS"
+		},
+		"LS_LOOKUP_SQLTABLE_properties_typeProperties_database": {
+			"value": "AdventureWorks2025"
+		},
+		"LS_LOOKUP_SQLTABLE_properties_typeProperties_userName": {
+			"value": "Pethilraj"
+		},
+		"LS_SERVER_ADLS_properties_typeProperties_server": {
+			"value": "DESKTOP-00IFFIA\\SQLEXPRESS"
+		},
+		"LS_SERVER_ADLS_properties_typeProperties_database": {
+			"value": "AdventureWorks2025"
+		},
+		"LS_SERVER_ADLS_properties_typeProperties_userName": {
+			"value": "Pethilraj"
+		},
+		"LS_SP_properties_typeProperties_server": {
+			"value": "DESKTOP-00IFFIA\\SQLEXPRESS"
+		},
+		"LS_SP_properties_typeProperties_database": {
+			"value": "AdventureWorks2025"
+		},
+		"LS_SP_properties_typeProperties_userName": {
+			"value": "Pethilraj"
+		},
+		"LS_Sink_SqlServer_Adls_Parq_Migration_properties_typeProperties_url": {
+			"value": "https://saadlsmultifileparquet.dfs.core.windows.net/"
+		},
+		"LS_Source_SqlServer_Adls_Migration_properties_typeProperties_server": {
+			"value": "DESKTOP-00IFFIA\\SQLEXPRESS"
+		},
+		"LS_Source_SqlServer_Adls_Migration_properties_typeProperties_database": {
+			"value": "AdventureWorks2025"
+		},
+		"LS_Source_SqlServer_Adls_Migration_properties_typeProperties_userName": {
+			"value": "Pethilraj"
+		},
+		"SqlServer1_properties_typeProperties_server": {
+			"value": "DESKTOP-00IFFIA\\SQLEXPRESS"
+		},
+		"SqlServer1_properties_typeProperties_database": {
+			"value": "AdventureWorks2025"
+		},
+		"SqlServer1_properties_typeProperties_userName": {
+			"value": "Pethilraj"
+		},
+		"ds_lookup_demo_sink_properties_typeProperties_url": {
+			"value": "https://saadlsmultifileparquet.dfs.core.windows.net/"
+		},
+		"ds_source_properties_typeProperties_server": {
+			"value": "DESKTOP-00IFFIA\\SQLEXPRESS"
+		},
+		"ds_source_properties_typeProperties_database": {
+			"value": "AdventureWorks2025"
+		},
+		"ds_source_properties_typeProperties_userName": {
+			"value": "Pethilraj"
+		},
+		"ls_adls_csv_properties_typeProperties_url": {
+			"value": "https://saadlsmultiplecsv.dfs.core.windows.net/"
+		},
+		"ls_api_properties_typeProperties_url": {
+			"value": "https://retoolapi.dev/5yDVOt/data"
+		},
+		"ls_api_adls_parquet_properties_typeProperties_url": {
+			"value": "https://saadlsmultifileparquet.dfs.core.windows.net/"
+		},
+		"ls_getmetadat_properties_typeProperties_server": {
+			"value": "DESKTOP-00IFFIA\\SQLEXPRESS"
+		},
+		"ls_getmetadat_properties_typeProperties_database": {
+			"value": "AdventureWorks2025"
+		},
+		"ls_getmetadat_properties_typeProperties_userName": {
+			"value": "Pethilraj"
+		},
+		"ls_logging_properties_typeProperties_url": {
+			"value": "https://saadlsmultiplecsv.dfs.core.windows.net/"
+		},
+		"ls_looku_demo_source_properties_typeProperties_server": {
+			"value": "DESKTOP-00IFFIA\\SQLEXPRESS"
+		},
+		"ls_looku_demo_source_properties_typeProperties_database": {
+			"value": "AdventureWorks2025"
+		},
+		"ls_looku_demo_source_properties_typeProperties_userName": {
+			"value": "Pethilraj"
+		},
+		"ls_lookup_properties_typeProperties_server": {
+			"value": "DESKTOP-00IFFIA\\SQLEXPRESS"
+		},
+		"ls_lookup_properties_typeProperties_database": {
+			"value": "AdventureWorks2025"
+		},
+		"ls_lookup_properties_typeProperties_userName": {
+			"value": "Pethilraj"
+		},
+		"ls_lookup2_properties_typeProperties_server": {
+			"value": "DESKTOP-00IFFIA\\SQLEXPRESS"
+		},
+		"ls_lookup2_properties_typeProperties_database": {
+			"value": "AdventureWorks2025"
+		},
+		"ls_lookup2_properties_typeProperties_userName": {
+			"value": "Pethilraj"
+		},
+		"ls_lookup_demo_properties_typeProperties_server": {
+			"value": "DESKTOP-00IFFIA\\SQLEXPRESS"
+		},
+		"ls_lookup_demo_properties_typeProperties_database": {
+			"value": "AdventureWorks2025"
+		},
+		"ls_lookup_demo_properties_typeProperties_userName": {
+			"value": "Pethilraj"
+		},
+		"ls_lookup_demo_sink_properties_typeProperties_url": {
+			"value": "https://saadlsmultifileparquet.dfs.core.windows.net/"
+		},
+		"ls_lookup_demo_source_properties_typeProperties_server": {
+			"value": "DESKTOP-00IFFIA\\SQLEXPRESS"
+		},
+		"ls_lookup_demo_source_properties_typeProperties_database": {
+			"value": "AdventureWorks2025"
+		},
+		"ls_lookup_demo_source_properties_typeProperties_userName": {
+			"value": "Pethilraj"
+		},
+		"ls_lookup_sink_properties_typeProperties_url": {
+			"value": "https://saadlsmultiplecsv.dfs.core.windows.net/"
+		},
+		"ls_lookup_tablewise_properties_typeProperties_server": {
+			"value": "DESKTOP-00IFFIA\\SQLEXPRESS"
+		},
+		"ls_lookup_tablewise_properties_typeProperties_database": {
+			"value": "AdventureWorks2025"
+		},
+		"ls_lookup_tablewise_properties_typeProperties_userName": {
+			"value": "Pethilraj"
+		},
+		"ls_multi_csv_properties_typeProperties_url": {
+			"value": "https://saadlsmultiplecsv.dfs.core.windows.net"
+		},
+		"ls_multi_parquet_properties_typeProperties_url": {
+			"value": "https://saadlsmultifileparquet.dfs.core.windows.net"
+		},
+		"ls_source_properties_typeProperties_server": {
+			"value": "DESKTOP-00IFFIA\\SQLEXPRESS"
+		},
+		"ls_source_properties_typeProperties_database": {
+			"value": "AdventureWorks2025"
+		},
+		"ls_source_properties_typeProperties_userName": {
+			"value": "Pethilraj"
+		},
+		"ls_source_sql_server_adls_properties_typeProperties_server": {
+			"value": "DESKTOP-00IFFIA\\SQLEXPRESS"
+		},
+		"ls_source_sql_server_adls_properties_typeProperties_database": {
+			"value": "AdventureWorks2025"
+		},
+		"ls_source_sql_server_adls_properties_typeProperties_userName": {
+			"value": "Pethilraj"
+		}
+	}
+}
