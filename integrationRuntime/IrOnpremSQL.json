@@ -1,0 +1,6 @@
+{
+	"name": "IrOnpremSQL",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}

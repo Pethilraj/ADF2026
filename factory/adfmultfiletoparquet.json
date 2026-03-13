@@ -1,0 +1,9 @@
+{
+	"name": "adfmultfiletoparquet",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "0fa88d99-5d28-4df2-9dbd-e3eb824c64df",
+		"tenantId": "54e6acba-8c7d-475c-94da-3ed173255cd9"
+	}
+}

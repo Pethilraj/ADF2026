@@ -1,0 +1,21 @@
+{
+	"name": "ls_lookup2",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"server": "DESKTOP-00IFFIA\\SQLEXPRESS",
+			"database": "AdventureWorks2025",
+			"encrypt": "optional",
+			"trustServerCertificate": false,
+			"authenticationType": "SQL",
+			"userName": "Pethilraj",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIyZDE0Nzc2NC05NTZjLTRkMWMtOTRiMi1lYWNmNTJlNDVlMDMiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "IrOnpremSQL",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
