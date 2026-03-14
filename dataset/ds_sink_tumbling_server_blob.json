@@ -1,0 +1,22 @@
+{
+	"name": "ds_sink_tumbling_server_blob",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sink_tumbling_server_blob",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "input"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}

@@ -1,0 +1,14 @@
+{
+	"name": "PL_tumbling",
+	"properties": {
+		"parameters": {
+			"startdate": {
+				"type": "string"
+			},
+			"enddate": {
+				"type": "string"
+			}
+		},
+		"annotations": []
+	}
+}

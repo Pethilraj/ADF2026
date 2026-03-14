@@ -1,0 +1,12 @@
+{
+	"name": "ds_tumbling_server_blob",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_Tumbling_server_blob",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": []
+	}
+}
