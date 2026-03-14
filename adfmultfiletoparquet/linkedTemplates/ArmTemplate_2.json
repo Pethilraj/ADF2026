@@ -1439,6 +1439,41 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/PL_EXECUTE _PIPELINE')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Execute Pipeline1",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"policy": {
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "PL_SWITCH",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": false,
+							"parameters": {
+								"ACTION": "COPY"
+							}
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/PL_SWITCH')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/PL_LOOKUP_SQLTABLE')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -1580,75 +1615,6 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/DS_LOOKUP_SQLTABLE')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/PL_Source_SqlServer_Adls_Migration')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Copy data1",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "SqlServerSource",
-								"queryTimeout": "02:00:00",
-								"partitionOption": "None"
-							},
-							"sink": {
-								"type": "ParquetSink",
-								"storeSettings": {
-									"type": "AzureBlobFSWriteSettings"
-								},
-								"formatSettings": {
-									"type": "ParquetWriteSettings"
-								}
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"typeConversion": true,
-								"typeConversionSettings": {
-									"allowDataTruncation": true,
-									"treatBooleanAsNumber": false
-								}
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "DS_Source_SqlServer_Adls_Migration",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "DS_Sink_SqlServer_Adls_Parq_Migration",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"policy": {
-					"elapsedTimeMetric": {}
-				},
-				"annotations": [],
-				"lastPublishTime": "2026-03-06T06:24:53Z"
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/DS_Source_SqlServer_Adls_Migration')]"
 			]
 		}
 	]

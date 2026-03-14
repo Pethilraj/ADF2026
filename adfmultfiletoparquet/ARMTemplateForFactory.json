@@ -333,6 +333,167 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/PL_APPEND_VAR')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Append variable1",
+						"type": "AppendVariable",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"variableName": "x",
+							"value": {
+								"value": "90",
+								"type": "Expression"
+							}
+						}
+					},
+					{
+						"name": "output",
+						"type": "SetVariable",
+						"dependsOn": [
+							{
+								"activity": "Append variable1",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"variableName": "Output",
+							"value": {
+								"value": "@variables('x')",
+								"type": "Expression"
+							}
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"variables": {
+					"x": {
+						"type": "Array",
+						"defaultValue": [
+							1,
+							2,
+							3,
+							4,
+							5
+						]
+					},
+					"Output": {
+						"type": "Array"
+					}
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/PL_ARRAY_ODD_EVEN_SETVAR')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "ForEach1",
+						"type": "ForEach",
+						"dependsOn": [],
+						"userProperties": [],
+						"typeProperties": {
+							"items": {
+								"value": "@pipeline().parameters.number",
+								"type": "Expression"
+							},
+							"isSequential": false,
+							"activities": [
+								{
+									"name": "If Condition1",
+									"type": "IfCondition",
+									"dependsOn": [],
+									"userProperties": [],
+									"typeProperties": {
+										"expression": {
+											"value": "@equals(mod(item(),2),0)",
+											"type": "Expression"
+										},
+										"ifFalseActivities": [
+											{
+												"name": "Odd",
+												"type": "SetVariable",
+												"dependsOn": [],
+												"policy": {
+													"secureOutput": false,
+													"secureInput": false
+												},
+												"userProperties": [],
+												"typeProperties": {
+													"variableName": "Num",
+													"value": {
+														"value": "@concat(string(item()),' Is a Odd Number')",
+														"type": "Expression"
+													}
+												}
+											}
+										],
+										"ifTrueActivities": [
+											{
+												"name": "Even",
+												"type": "SetVariable",
+												"dependsOn": [],
+												"policy": {
+													"secureOutput": false,
+													"secureInput": false
+												},
+												"userProperties": [],
+												"typeProperties": {
+													"variableName": "Num",
+													"value": {
+														"value": "@concat(string(item()),' Is a Even Number')",
+														"type": "Expression"
+													}
+												}
+											}
+										]
+									}
+								}
+							]
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"parameters": {
+					"number": {
+						"type": "array",
+						"defaultValue": [
+							13,
+							14,
+							15,
+							16
+						]
+					}
+				},
+				"variables": {
+					"Num": {
+						"type": "String"
+					}
+				},
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/PL_COPY_ONLY_SALES_FILE_ADLS')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -823,6 +984,41 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/PL_EXECUTE _PIPELINE')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Execute Pipeline1",
+						"type": "ExecutePipeline",
+						"dependsOn": [],
+						"policy": {
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "PL_SWITCH",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": false,
+							"parameters": {
+								"ACTION": "COPY"
+							}
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/PL_SWITCH')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/PL_FILTER')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -1088,6 +1284,92 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/DS_LOOKUP_SQLTABLE')]"
 			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/PL_SETVARIABLE')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Set variable1",
+						"type": "SetVariable",
+						"dependsOn": [],
+						"policy": {
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"variableName": "X",
+							"value": {
+								"value": "@utcNow()",
+								"type": "Expression"
+							}
+						}
+					},
+					{
+						"name": "Set variable2",
+						"type": "SetVariable",
+						"dependsOn": [],
+						"policy": {
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"variableName": "Y",
+							"value": "Monday"
+						}
+					},
+					{
+						"name": "Set variable3",
+						"type": "SetVariable",
+						"dependsOn": [
+							{
+								"activity": "Set variable1",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							},
+							{
+								"activity": "Set variable2",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"variableName": "Filename",
+							"value": {
+								"value": "@concat(variables('Y'),' ',variables('X'))",
+								"type": "Expression"
+							}
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"variables": {
+					"X": {
+						"type": "String"
+					},
+					"Y": {
+						"type": "String"
+					},
+					"Filename": {
+						"type": "String"
+					}
+				},
+				"annotations": []
+			},
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/PL_SP')]",
@@ -3189,294 +3471,43 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/trigger1')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "pl_lookup",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Minute",
+						"interval": 2,
+						"startTime": "2026-03-14T03:10:00",
+						"endTime": "2026-03-15T03:10:00",
+						"timeZone": "India Standard Time"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pl_lookup')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/IrOnpremSQL')]",
 			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"type": "SelfHosted",
 				"typeProperties": {}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/PL_EXECUTE _PIPELINE')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Execute Pipeline1",
-						"type": "ExecutePipeline",
-						"dependsOn": [],
-						"policy": {
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "PL_SWITCH",
-								"type": "PipelineReference"
-							},
-							"waitOnCompletion": false,
-							"parameters": {
-								"ACTION": "COPY"
-							}
-						}
-					}
-				],
-				"policy": {
-					"elapsedTimeMetric": {}
-				},
-				"annotations": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/PL_SWITCH')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/PL_SETVARIABLE')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Set variable1",
-						"type": "SetVariable",
-						"dependsOn": [],
-						"policy": {
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"variableName": "X",
-							"value": {
-								"value": "@utcNow()",
-								"type": "Expression"
-							}
-						}
-					},
-					{
-						"name": "Set variable2",
-						"type": "SetVariable",
-						"dependsOn": [],
-						"policy": {
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"variableName": "Y",
-							"value": "Monday"
-						}
-					},
-					{
-						"name": "Set variable3",
-						"type": "SetVariable",
-						"dependsOn": [
-							{
-								"activity": "Set variable1",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							},
-							{
-								"activity": "Set variable2",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"policy": {
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"variableName": "Filename",
-							"value": {
-								"value": "@concat(variables('Y'),' ',variables('X'))",
-								"type": "Expression"
-							}
-						}
-					}
-				],
-				"policy": {
-					"elapsedTimeMetric": {}
-				},
-				"variables": {
-					"X": {
-						"type": "String"
-					},
-					"Y": {
-						"type": "String"
-					},
-					"Filename": {
-						"type": "String"
-					}
-				},
-				"annotations": []
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/PL_ARRAY_ODD_EVEN_SETVAR')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "ForEach1",
-						"type": "ForEach",
-						"dependsOn": [],
-						"userProperties": [],
-						"typeProperties": {
-							"items": {
-								"value": "@pipeline().parameters.number",
-								"type": "Expression"
-							},
-							"isSequential": false,
-							"activities": [
-								{
-									"name": "If Condition1",
-									"type": "IfCondition",
-									"dependsOn": [],
-									"userProperties": [],
-									"typeProperties": {
-										"expression": {
-											"value": "@equals(mod(item(),2),0)",
-											"type": "Expression"
-										},
-										"ifFalseActivities": [
-											{
-												"name": "Odd",
-												"type": "SetVariable",
-												"dependsOn": [],
-												"policy": {
-													"secureOutput": false,
-													"secureInput": false
-												},
-												"userProperties": [],
-												"typeProperties": {
-													"variableName": "Num",
-													"value": {
-														"value": "@concat(string(item()),' Is a Odd Number')",
-														"type": "Expression"
-													}
-												}
-											}
-										],
-										"ifTrueActivities": [
-											{
-												"name": "Even",
-												"type": "SetVariable",
-												"dependsOn": [],
-												"policy": {
-													"secureOutput": false,
-													"secureInput": false
-												},
-												"userProperties": [],
-												"typeProperties": {
-													"variableName": "Num",
-													"value": {
-														"value": "@concat(string(item()),' Is a Even Number')",
-														"type": "Expression"
-													}
-												}
-											}
-										]
-									}
-								}
-							]
-						}
-					}
-				],
-				"policy": {
-					"elapsedTimeMetric": {}
-				},
-				"parameters": {
-					"number": {
-						"type": "array",
-						"defaultValue": [
-							13,
-							14,
-							15,
-							16
-						]
-					}
-				},
-				"variables": {
-					"Num": {
-						"type": "String"
-					}
-				},
-				"annotations": []
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/PL_APPEND_VAR')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Append variable1",
-						"type": "AppendVariable",
-						"dependsOn": [],
-						"userProperties": [],
-						"typeProperties": {
-							"variableName": "x",
-							"value": {
-								"value": "90",
-								"type": "Expression"
-							}
-						}
-					},
-					{
-						"name": "output",
-						"type": "SetVariable",
-						"dependsOn": [
-							{
-								"activity": "Append variable1",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"policy": {
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"variableName": "Output",
-							"value": {
-								"value": "@variables('x')",
-								"type": "Expression"
-							}
-						}
-					}
-				],
-				"policy": {
-					"elapsedTimeMetric": {}
-				},
-				"variables": {
-					"x": {
-						"type": "Array",
-						"defaultValue": [
-							1,
-							2,
-							3,
-							4,
-							5
-						]
-					},
-					"Output": {
-						"type": "Array"
-					}
-				},
-				"annotations": []
 			},
 			"dependsOn": []
 		}
