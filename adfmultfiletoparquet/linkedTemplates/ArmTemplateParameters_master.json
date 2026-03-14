@@ -86,6 +86,9 @@
 		"ls_source_sql_server_adls_password": {
 			"value": ""
 		},
+		"ls_sink_tub_blob_connectionString": {
+			"value": ""
+		},
 		"LS_LOOKUP_SQLTABLE_properties_typeProperties_server": {
 			"value": "DESKTOP-00IFFIA\\SQLEXPRESS"
 		},

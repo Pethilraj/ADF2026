@@ -55,6 +55,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'ls_source'"
 		},
+		"ls_sink_tub_blob_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_sink_tub_blob'"
+		},
 		"LS_Sink_SqlServer_Adls_Parq_Migration_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://saadlsmultifileparquet.dfs.core.windows.net/"
@@ -586,6 +590,19 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/ls_sink_tub_blob')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('ls_sink_tub_blob_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/DS_SINK_SQLTABLE_BLOB_SP')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -636,107 +653,6 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/LS_Sink_SqlServer_Adls_Parq_Migration')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/DS_SqlServer_Adls_Migration')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "ls_api_adls_parquet",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "Parquet",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"fileSystem": "output"
-					},
-					"compressionCodec": "snappy"
-				},
-				"schema": [
-					{
-						"name": "id",
-						"type": "INT64"
-					},
-					{
-						"name": "Sku",
-						"type": "UTF8"
-					},
-					{
-						"name": "TP1",
-						"type": "UTF8"
-					},
-					{
-						"name": "TP2",
-						"type": "UTF8"
-					},
-					{
-						"name": "index",
-						"type": "UTF8"
-					},
-					{
-						"name": "Weight",
-						"type": "UTF8"
-					},
-					{
-						"name": "Catalog",
-						"type": "UTF8"
-					},
-					{
-						"name": "MRPOld",
-						"type": "UTF8"
-					},
-					{
-						"name": "AjioMRP",
-						"type": "UTF8"
-					},
-					{
-						"name": "Category",
-						"type": "UTF8"
-					},
-					{
-						"name": "StyleId",
-						"type": "UTF8"
-					},
-					{
-						"name": "PaytmMRP",
-						"type": "UTF8"
-					},
-					{
-						"name": "AmazonMRP",
-						"type": "UTF8"
-					},
-					{
-						"name": "MyntraMRP",
-						"type": "UTF8"
-					},
-					{
-						"name": "FlipkartMRP",
-						"type": "UTF8"
-					},
-					{
-						"name": "LimeroadMRP",
-						"type": "UTF8"
-					},
-					{
-						"name": "SnapdealMRP",
-						"type": "UTF8"
-					},
-					{
-						"name": "FinalMRPOld",
-						"type": "UTF8"
-					},
-					{
-						"name": "AmazonFBAMRP",
-						"type": "UTF8"
-					}
-				]
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_api_adls_parquet')]"
 			]
 		}
 	]

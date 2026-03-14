@@ -7,6 +7,10 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "adfmultfiletoparquet"
 		},
+		"ls_lookup_demo_source_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'ls_lookup_demo_source'"
+		},
 		"ls_lookup_tablewise_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'ls_lookup_tablewise'"
@@ -14,6 +18,18 @@
 		"ls_source_sql_server_adls_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'ls_source_sql_server_adls'"
+		},
+		"ls_lookup_demo_source_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "DESKTOP-00IFFIA\\SQLEXPRESS"
+		},
+		"ls_lookup_demo_source_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "AdventureWorks2025"
+		},
+		"ls_lookup_demo_source_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Pethilraj"
 		},
 		"ls_lookup_tablewise_properties_typeProperties_server": {
 			"type": "string",
@@ -44,6 +60,32 @@
 		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
 	},
 	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/ls_lookup_demo_source')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SqlServer",
+				"typeProperties": {
+					"server": "[parameters('ls_lookup_demo_source_properties_typeProperties_server')]",
+					"database": "[parameters('ls_lookup_demo_source_properties_typeProperties_database')]",
+					"encrypt": "optional",
+					"trustServerCertificate": false,
+					"authenticationType": "SQL",
+					"userName": "[parameters('ls_lookup_demo_source_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('ls_lookup_demo_source_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "IrOnpremSQL",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ls_lookup_tablewise')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
@@ -93,6 +135,31 @@
 					"referenceName": "IrOnpremSQL",
 					"type": "IntegrationRuntimeReference"
 				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ls_sink_tub_blob')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_sink_tub_blob",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"container": "output"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
 			},
 			"dependsOn": []
 		},
@@ -1452,235 +1519,6 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/ls_lookup_tablewise')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ds_tumbling_server_blob')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "ls_Tumbling_server_blob",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "Sales",
-					"table": "SalesOrderDetail"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/PL_CPY_SQLTABLE_SP_BLOB')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Stored procedure1",
-						"type": "SqlServerStoredProcedure",
-						"dependsOn": [
-							{
-								"activity": "Copy data1",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"storedProcedureName": "[[audit].[loadstatus]",
-							"storedProcedureParameters": {
-								"dataread": {
-									"value": {
-										"value": "@activity('Copy data1').output.dataread",
-										"type": "Expression"
-									},
-									"type": "String"
-								},
-								"errorid": {
-									"value": null,
-									"type": "String"
-								},
-								"errormessage": {
-									"value": null,
-									"type": "String"
-								},
-								"loadstatus": {
-									"value": {
-										"value": "@activity('Copy data1').output.executionDetails[0].status\n",
-										"type": "Expression"
-									},
-									"type": "String"
-								},
-								"TableName": {
-									"value": {
-										"value": "@concat(pipeline().parameters.schemaname,'_',pipeline().parameters.tablename)\n",
-										"type": "Expression"
-									},
-									"type": "String"
-								}
-							}
-						},
-						"linkedServiceName": {
-							"referenceName": "LS_SP",
-							"type": "LinkedServiceReference"
-						}
-					},
-					{
-						"name": "Copy data1",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "SqlServerSource",
-								"queryTimeout": "02:00:00",
-								"partitionOption": "None"
-							},
-							"sink": {
-								"type": "DelimitedTextSink",
-								"storeSettings": {
-									"type": "AzureBlobStorageWriteSettings"
-								},
-								"formatSettings": {
-									"type": "DelimitedTextWriteSettings",
-									"quoteAllText": true,
-									"fileExtension": ".txt"
-								}
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"typeConversion": true,
-								"typeConversionSettings": {
-									"allowDataTruncation": true,
-									"treatBooleanAsNumber": false
-								}
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "DS_CPY_SQLSERVER_BLOB_LOG_STS_PIPELINE",
-								"type": "DatasetReference",
-								"parameters": {
-									"schemaname": {
-										"value": "@pipeline().parameters.schemaname",
-										"type": "Expression"
-									},
-									"tablename": {
-										"value": "@pipeline().parameters.tablename",
-										"type": "Expression"
-									}
-								}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "DS_SINK_SQLTABLE_BLOB_SP",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					},
-					{
-						"name": "Stored procedure2",
-						"type": "SqlServerStoredProcedure",
-						"dependsOn": [
-							{
-								"activity": "Copy data1",
-								"dependencyConditions": [
-									"Failed"
-								]
-							}
-						],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"storedProcedureName": "[[audit].[loadstatus]",
-							"storedProcedureParameters": {
-								"dataread": {
-									"value": {
-										"value": "@activity('Copy data1').output.dataread",
-										"type": "Expression"
-									},
-									"type": "String"
-								},
-								"errorid": {
-									"value": {
-										"value": "@activity('Copy data1').output.errors[0].code",
-										"type": "Expression"
-									},
-									"type": "String"
-								},
-								"errormessage": {
-									"value": {
-										"value": "@activity('Copy data1').output.errors[0].message",
-										"type": "Expression"
-									},
-									"type": "String"
-								},
-								"loadstatus": {
-									"value": {
-										"value": "@activity('Copy data1').output.executionDetails[0].status\r\n",
-										"type": "Expression"
-									},
-									"type": "String"
-								},
-								"TableName": {
-									"value": {
-										"value": "@concat(pipeline().parameters.schemaname,'_',pipeline().parameters.tablename)\n",
-										"type": "Expression"
-									},
-									"type": "String"
-								}
-							}
-						},
-						"linkedServiceName": {
-							"referenceName": "LS_SP",
-							"type": "LinkedServiceReference"
-						}
-					}
-				],
-				"policy": {
-					"elapsedTimeMetric": {}
-				},
-				"parameters": {
-					"schemaname": {
-						"type": "string"
-					},
-					"tablename": {
-						"type": "string"
-					}
-				},
-				"annotations": [],
-				"lastPublishTime": "2026-03-11T03:52:13Z"
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/DS_CPY_SQLSERVER_BLOB_LOG_STS_PIPELINE')]"
 			]
 		}
 	]

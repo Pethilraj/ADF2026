@@ -115,6 +115,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'ls_source_sql_server_adls'"
 		},
+		"ls_sink_tub_blob_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_sink_tub_blob'"
+		},
 		"LS_LOOKUP_SQLTABLE_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "DESKTOP-00IFFIA\\SQLEXPRESS"
@@ -1708,9 +1712,15 @@
 								"partitionOption": "None"
 							},
 							"sink": {
-								"type": "SqlServerSink",
-								"writeBehavior": "insert",
-								"sqlWriterUseTableLock": false
+								"type": "DelimitedTextSink",
+								"storeSettings": {
+									"type": "AzureBlobStorageWriteSettings"
+								},
+								"formatSettings": {
+									"type": "DelimitedTextWriteSettings",
+									"quoteAllText": true,
+									"fileExtension": ".txt"
+								}
 							},
 							"enableStaging": false,
 							"translator": {
@@ -1731,7 +1741,7 @@
 						],
 						"outputs": [
 							{
-								"referenceName": "ds_tumbling_server_blob",
+								"referenceName": "ls_sink_tub_blob",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -1752,7 +1762,8 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/ds_tumbling_server_blob')]"
+				"[concat(variables('factoryId'), '/datasets/ds_tumbling_server_blob')]",
+				"[concat(variables('factoryId'), '/datasets/ls_sink_tub_blob')]"
 			]
 		},
 		{
@@ -3753,6 +3764,46 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/PL_TUMPLING')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ls_sink_tub_blob')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('ls_sink_tub_blob_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ls_sink_tub_blob')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_sink_tub_blob",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"container": "output"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_sink_tub_blob')]"
 			]
 		}
 	]

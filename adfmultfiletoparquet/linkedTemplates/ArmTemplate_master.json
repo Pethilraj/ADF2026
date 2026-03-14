@@ -115,6 +115,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'ls_source_sql_server_adls'"
 		},
+		"ls_sink_tub_blob_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_sink_tub_blob'"
+		},
 		"LS_LOOKUP_SQLTABLE_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "DESKTOP-00IFFIA\\SQLEXPRESS"
@@ -422,6 +426,9 @@
 					"ls_source_password": {
 						"value": "[parameters('ls_source_password')]"
 					},
+					"ls_sink_tub_blob_connectionString": {
+						"value": "[parameters('ls_sink_tub_blob_connectionString')]"
+					},
 					"LS_Sink_SqlServer_Adls_Parq_Migration_properties_typeProperties_url": {
 						"value": "[parameters('LS_Sink_SqlServer_Adls_Parq_Migration_properties_typeProperties_url')]"
 					},
@@ -514,9 +521,6 @@
 					},
 					"ls_lookup_demo_password": {
 						"value": "[parameters('ls_lookup_demo_password')]"
-					},
-					"ls_lookup_demo_source_password": {
-						"value": "[parameters('ls_lookup_demo_source_password')]"
 					},
 					"LS_LOOKUP_SQLTABLE_properties_typeProperties_server": {
 						"value": "[parameters('LS_LOOKUP_SQLTABLE_properties_typeProperties_server')]"
@@ -625,15 +629,6 @@
 					},
 					"ls_lookup_demo_properties_typeProperties_userName": {
 						"value": "[parameters('ls_lookup_demo_properties_typeProperties_userName')]"
-					},
-					"ls_lookup_demo_source_properties_typeProperties_server": {
-						"value": "[parameters('ls_lookup_demo_source_properties_typeProperties_server')]"
-					},
-					"ls_lookup_demo_source_properties_typeProperties_database": {
-						"value": "[parameters('ls_lookup_demo_source_properties_typeProperties_database')]"
-					},
-					"ls_lookup_demo_source_properties_typeProperties_userName": {
-						"value": "[parameters('ls_lookup_demo_source_properties_typeProperties_userName')]"
 					}
 				}
 			},
@@ -655,11 +650,23 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
+					"ls_lookup_demo_source_password": {
+						"value": "[parameters('ls_lookup_demo_source_password')]"
+					},
 					"ls_lookup_tablewise_password": {
 						"value": "[parameters('ls_lookup_tablewise_password')]"
 					},
 					"ls_source_sql_server_adls_password": {
 						"value": "[parameters('ls_source_sql_server_adls_password')]"
+					},
+					"ls_lookup_demo_source_properties_typeProperties_server": {
+						"value": "[parameters('ls_lookup_demo_source_properties_typeProperties_server')]"
+					},
+					"ls_lookup_demo_source_properties_typeProperties_database": {
+						"value": "[parameters('ls_lookup_demo_source_properties_typeProperties_database')]"
+					},
+					"ls_lookup_demo_source_properties_typeProperties_userName": {
+						"value": "[parameters('ls_lookup_demo_source_properties_typeProperties_userName')]"
 					},
 					"ls_lookup_tablewise_properties_typeProperties_server": {
 						"value": "[parameters('ls_lookup_tablewise_properties_typeProperties_server')]"

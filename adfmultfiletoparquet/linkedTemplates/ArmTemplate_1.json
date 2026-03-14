@@ -55,10 +55,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'ls_lookup_demo'"
 		},
-		"ls_lookup_demo_source_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'ls_lookup_demo_source'"
-		},
 		"LS_LOOKUP_SQLTABLE_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "DESKTOP-00IFFIA\\SQLEXPRESS"
@@ -202,24 +198,111 @@
 		"ls_lookup_demo_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "Pethilraj"
-		},
-		"ls_lookup_demo_source_properties_typeProperties_server": {
-			"type": "string",
-			"defaultValue": "DESKTOP-00IFFIA\\SQLEXPRESS"
-		},
-		"ls_lookup_demo_source_properties_typeProperties_database": {
-			"type": "string",
-			"defaultValue": "AdventureWorks2025"
-		},
-		"ls_lookup_demo_source_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "Pethilraj"
 		}
 	},
 	"variables": {
 		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
 	},
 	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/DS_SqlServer_Adls_Migration')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_api_adls_parquet",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "output"
+					},
+					"compressionCodec": "snappy"
+				},
+				"schema": [
+					{
+						"name": "id",
+						"type": "INT64"
+					},
+					{
+						"name": "Sku",
+						"type": "UTF8"
+					},
+					{
+						"name": "TP1",
+						"type": "UTF8"
+					},
+					{
+						"name": "TP2",
+						"type": "UTF8"
+					},
+					{
+						"name": "index",
+						"type": "UTF8"
+					},
+					{
+						"name": "Weight",
+						"type": "UTF8"
+					},
+					{
+						"name": "Catalog",
+						"type": "UTF8"
+					},
+					{
+						"name": "MRPOld",
+						"type": "UTF8"
+					},
+					{
+						"name": "AjioMRP",
+						"type": "UTF8"
+					},
+					{
+						"name": "Category",
+						"type": "UTF8"
+					},
+					{
+						"name": "StyleId",
+						"type": "UTF8"
+					},
+					{
+						"name": "PaytmMRP",
+						"type": "UTF8"
+					},
+					{
+						"name": "AmazonMRP",
+						"type": "UTF8"
+					},
+					{
+						"name": "MyntraMRP",
+						"type": "UTF8"
+					},
+					{
+						"name": "FlipkartMRP",
+						"type": "UTF8"
+					},
+					{
+						"name": "LimeroadMRP",
+						"type": "UTF8"
+					},
+					{
+						"name": "SnapdealMRP",
+						"type": "UTF8"
+					},
+					{
+						"name": "FinalMRPOld",
+						"type": "UTF8"
+					},
+					{
+						"name": "AmazonFBAMRP",
+						"type": "UTF8"
+					}
+				]
+			},
+			"dependsOn": []
+		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ds_adls_csv')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
@@ -692,32 +775,6 @@
 					"password": {
 						"type": "SecureString",
 						"value": "[parameters('ls_lookup_demo_password')]"
-					}
-				},
-				"connectVia": {
-					"referenceName": "IrOnpremSQL",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ls_lookup_demo_source')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "SqlServer",
-				"typeProperties": {
-					"server": "[parameters('ls_lookup_demo_source_properties_typeProperties_server')]",
-					"database": "[parameters('ls_lookup_demo_source_properties_typeProperties_database')]",
-					"encrypt": "optional",
-					"trustServerCertificate": false,
-					"authenticationType": "SQL",
-					"userName": "[parameters('ls_lookup_demo_source_properties_typeProperties_userName')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('ls_lookup_demo_source_password')]"
 					}
 				},
 				"connectVia": {
