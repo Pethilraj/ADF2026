@@ -351,11 +351,11 @@
 			"type": "string",
 			"defaultValue": "/subscriptions/c19ca210-ae3a-4f21-ba62-58fc39df6105/resourceGroups/rgdevadcbksa/providers/Microsoft.Storage/storageAccounts/saadlsmultiplecsv"
 		},
-		"Tumpling_properties_pipeline_parameters_startdata": {
+		"Tumbling_properties_pipeline_parameters_startdata": {
 			"type": "string",
 			"defaultValue": "@trigger().outputs.windowstarttime"
 		},
-		"Tumpling_properties_pipeline_parameters_enddata": {
+		"Tumbling_properties_pipeline_parameters_enddata": {
 			"type": "string",
 			"defaultValue": "@trigger().outputs.windowEndtime"
 		},
@@ -702,11 +702,11 @@
 					"trigger1_properties_typeProperties_scope": {
 						"value": "[parameters('trigger1_properties_typeProperties_scope')]"
 					},
-					"Tumpling_properties_pipeline_parameters_startdata": {
-						"value": "[parameters('Tumpling_properties_pipeline_parameters_startdata')]"
+					"Tumbling_properties_pipeline_parameters_startdata": {
+						"value": "[parameters('Tumbling_properties_pipeline_parameters_startdata')]"
 					},
-					"Tumpling_properties_pipeline_parameters_enddata": {
-						"value": "[parameters('Tumpling_properties_pipeline_parameters_enddata')]"
+					"Tumbling_properties_pipeline_parameters_enddata": {
+						"value": "[parameters('Tumbling_properties_pipeline_parameters_enddata')]"
 					}
 				}
 			},
