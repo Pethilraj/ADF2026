@@ -263,10 +263,10 @@
 		"trigger1_properties_typeProperties_scope": {
 			"value": "/subscriptions/c19ca210-ae3a-4f21-ba62-58fc39df6105/resourceGroups/rgdevadcbksa/providers/Microsoft.Storage/storageAccounts/saadlsmultiplecsv"
 		},
-		"trigger2_properties_pipeline_parameters_startdata": {
+		"Tum_properties_pipeline_parameters_startdata": {
 			"value": "@trigger().outputs.windowstarttime"
 		},
-		"trigger2_properties_pipeline_parameters_enddata": {
+		"Tum_properties_pipeline_parameters_enddata": {
 			"value": "@trigger().outputs.windowEndtime"
 		},
 		"containerUri": {
