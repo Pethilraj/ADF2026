@@ -1,0 +1,22 @@
+{
+	"name": "ls_sink_tub_blob",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sink_tub_blob",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "output"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}

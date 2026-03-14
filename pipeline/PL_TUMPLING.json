@@ -38,9 +38,15 @@
 						"partitionOption": "None"
 					},
 					"sink": {
-						"type": "SqlServerSink",
-						"writeBehavior": "insert",
-						"sqlWriterUseTableLock": false
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
 					},
 					"enableStaging": false,
 					"translator": {
@@ -60,7 +66,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "ds_tumbling_server_blob",
+						"referenceName": "ls_sink_tub_blob",
 						"type": "DatasetReference"
 					}
 				]
