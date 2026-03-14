@@ -2947,8 +2947,8 @@
 				"type": "SqlServerTable",
 				"schema": [],
 				"typeProperties": {
-					"schema": "HumanResources",
-					"table": "Employee"
+					"schema": "Sales",
+					"table": "SalesOrderDetail"
 				}
 			},
 			"dependsOn": [
