@@ -327,6 +327,10 @@
 			"type": "string",
 			"defaultValue": "Pethilraj"
 		},
+		"trigger1_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/c19ca210-ae3a-4f21-ba62-58fc39df6105/resourceGroups/rgdevadcbksa/providers/Microsoft.Storage/storageAccounts/saadlsmultiplecsv"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -651,6 +655,9 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"trigger1_properties_typeProperties_scope": {
+						"value": "[parameters('trigger1_properties_typeProperties_scope')]"
 					}
 				}
 			},
