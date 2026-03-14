@@ -355,11 +355,11 @@
 			"type": "string",
 			"defaultValue": "/subscriptions/c19ca210-ae3a-4f21-ba62-58fc39df6105/resourceGroups/rgdevadcbksa/providers/Microsoft.Storage/storageAccounts/saadlsmultiplecsv"
 		},
-		"Tum_properties_pipeline_parameters_startdata": {
+		"tub_properties_pipeline_parameters_startdata": {
 			"type": "string",
 			"defaultValue": "@trigger().outputs.windowstarttime"
 		},
-		"Tum_properties_pipeline_parameters_enddata": {
+		"tub_properties_pipeline_parameters_enddata": {
 			"type": "string",
 			"defaultValue": "@trigger().outputs.windowEndtime"
 		}
@@ -3732,41 +3732,6 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Tum')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"runtimeState": "Started",
-				"pipeline": {
-					"pipelineReference": {
-						"referenceName": "PL_TUMPLING",
-						"type": "PipelineReference"
-					},
-					"parameters": {
-						"startdata": "[parameters('Tum_properties_pipeline_parameters_startdata')]",
-						"enddata": "[parameters('Tum_properties_pipeline_parameters_enddata')]"
-					}
-				},
-				"type": "TumblingWindowTrigger",
-				"typeProperties": {
-					"frequency": "Hour",
-					"interval": 24,
-					"startTime": "2025-06-21T00:00:00Z",
-					"endTime": "2025-06-23T00:00:00Z",
-					"delay": "00:00:00",
-					"maxConcurrency": 50,
-					"retryPolicy": {
-						"intervalInSeconds": 30
-					},
-					"dependsOn": []
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/PL_TUMPLING')]"
-			]
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/ls_sink_tub_blob')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -3804,6 +3769,41 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/ls_sink_tub_blob')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/tub')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipeline": {
+					"pipelineReference": {
+						"referenceName": "PL_TUMPLING",
+						"type": "PipelineReference"
+					},
+					"parameters": {
+						"startdata": "[parameters('tub_properties_pipeline_parameters_startdata')]",
+						"enddata": "[parameters('tub_properties_pipeline_parameters_enddata')]"
+					}
+				},
+				"type": "TumblingWindowTrigger",
+				"typeProperties": {
+					"frequency": "Hour",
+					"interval": 24,
+					"startTime": "2025-06-21T00:00:00Z",
+					"endTime": "2025-06-23T00:00:00Z",
+					"delay": "00:00:00",
+					"maxConcurrency": 50,
+					"retryPolicy": {
+						"intervalInSeconds": 30
+					},
+					"dependsOn": []
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/PL_TUMPLING')]"
 			]
 		}
 	]
