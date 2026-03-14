@@ -43,6 +43,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'ds_source'"
 		},
+		"ls_Tumbling_server_blob_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'ls_Tumbling_server_blob'"
+		},
 		"ls_adls_csv_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'ls_adls_csv'"
@@ -98,6 +102,10 @@
 		"ls_multi_parquet_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'ls_multi_parquet'"
+		},
+		"ls_sink_tumbling_server_blob_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_sink_tumbling_server_blob'"
 		},
 		"ls_source_password": {
 			"type": "secureString",
@@ -184,6 +192,18 @@
 			"defaultValue": "AdventureWorks2025"
 		},
 		"ds_source_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Pethilraj"
+		},
+		"ls_Tumbling_server_blob_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "DESKTOP-00IFFIA\\SQLEXPRESS"
+		},
+		"ls_Tumbling_server_blob_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "AdventureWorks2025"
+		},
+		"ls_Tumbling_server_blob_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "Pethilraj"
 		},
@@ -331,6 +351,14 @@
 			"type": "string",
 			"defaultValue": "/subscriptions/c19ca210-ae3a-4f21-ba62-58fc39df6105/resourceGroups/rgdevadcbksa/providers/Microsoft.Storage/storageAccounts/saadlsmultiplecsv"
 		},
+		"Tumpling_properties_pipeline_parameters_startdata": {
+			"type": "string",
+			"defaultValue": "@trigger().outputs.windowstarttime"
+		},
+		"Tumpling_properties_pipeline_parameters_enddata": {
+			"type": "string",
+			"defaultValue": "@trigger().outputs.windowEndtime"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -387,6 +415,9 @@
 					},
 					"ls_multi_parquet_accountKey": {
 						"value": "[parameters('ls_multi_parquet_accountKey')]"
+					},
+					"ls_sink_tumbling_server_blob_connectionString": {
+						"value": "[parameters('ls_sink_tumbling_server_blob_connectionString')]"
 					},
 					"ls_source_password": {
 						"value": "[parameters('ls_source_password')]"
@@ -466,6 +497,9 @@
 					"ds_source_password": {
 						"value": "[parameters('ds_source_password')]"
 					},
+					"ls_Tumbling_server_blob_password": {
+						"value": "[parameters('ls_Tumbling_server_blob_password')]"
+					},
 					"ls_getmetadat_password": {
 						"value": "[parameters('ls_getmetadat_password')]"
 					},
@@ -483,12 +517,6 @@
 					},
 					"ls_lookup_demo_source_password": {
 						"value": "[parameters('ls_lookup_demo_source_password')]"
-					},
-					"ls_lookup_tablewise_password": {
-						"value": "[parameters('ls_lookup_tablewise_password')]"
-					},
-					"ls_source_sql_server_adls_password": {
-						"value": "[parameters('ls_source_sql_server_adls_password')]"
 					},
 					"LS_LOOKUP_SQLTABLE_properties_typeProperties_server": {
 						"value": "[parameters('LS_LOOKUP_SQLTABLE_properties_typeProperties_server')]"
@@ -544,6 +572,15 @@
 					"ds_source_properties_typeProperties_userName": {
 						"value": "[parameters('ds_source_properties_typeProperties_userName')]"
 					},
+					"ls_Tumbling_server_blob_properties_typeProperties_server": {
+						"value": "[parameters('ls_Tumbling_server_blob_properties_typeProperties_server')]"
+					},
+					"ls_Tumbling_server_blob_properties_typeProperties_database": {
+						"value": "[parameters('ls_Tumbling_server_blob_properties_typeProperties_database')]"
+					},
+					"ls_Tumbling_server_blob_properties_typeProperties_userName": {
+						"value": "[parameters('ls_Tumbling_server_blob_properties_typeProperties_userName')]"
+					},
 					"ls_getmetadat_properties_typeProperties_server": {
 						"value": "[parameters('ls_getmetadat_properties_typeProperties_server')]"
 					},
@@ -597,24 +634,6 @@
 					},
 					"ls_lookup_demo_source_properties_typeProperties_userName": {
 						"value": "[parameters('ls_lookup_demo_source_properties_typeProperties_userName')]"
-					},
-					"ls_lookup_tablewise_properties_typeProperties_server": {
-						"value": "[parameters('ls_lookup_tablewise_properties_typeProperties_server')]"
-					},
-					"ls_lookup_tablewise_properties_typeProperties_database": {
-						"value": "[parameters('ls_lookup_tablewise_properties_typeProperties_database')]"
-					},
-					"ls_lookup_tablewise_properties_typeProperties_userName": {
-						"value": "[parameters('ls_lookup_tablewise_properties_typeProperties_userName')]"
-					},
-					"ls_source_sql_server_adls_properties_typeProperties_server": {
-						"value": "[parameters('ls_source_sql_server_adls_properties_typeProperties_server')]"
-					},
-					"ls_source_sql_server_adls_properties_typeProperties_database": {
-						"value": "[parameters('ls_source_sql_server_adls_properties_typeProperties_database')]"
-					},
-					"ls_source_sql_server_adls_properties_typeProperties_userName": {
-						"value": "[parameters('ls_source_sql_server_adls_properties_typeProperties_userName')]"
 					}
 				}
 			},
@@ -635,6 +654,30 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"ls_lookup_tablewise_password": {
+						"value": "[parameters('ls_lookup_tablewise_password')]"
+					},
+					"ls_source_sql_server_adls_password": {
+						"value": "[parameters('ls_source_sql_server_adls_password')]"
+					},
+					"ls_lookup_tablewise_properties_typeProperties_server": {
+						"value": "[parameters('ls_lookup_tablewise_properties_typeProperties_server')]"
+					},
+					"ls_lookup_tablewise_properties_typeProperties_database": {
+						"value": "[parameters('ls_lookup_tablewise_properties_typeProperties_database')]"
+					},
+					"ls_lookup_tablewise_properties_typeProperties_userName": {
+						"value": "[parameters('ls_lookup_tablewise_properties_typeProperties_userName')]"
+					},
+					"ls_source_sql_server_adls_properties_typeProperties_server": {
+						"value": "[parameters('ls_source_sql_server_adls_properties_typeProperties_server')]"
+					},
+					"ls_source_sql_server_adls_properties_typeProperties_database": {
+						"value": "[parameters('ls_source_sql_server_adls_properties_typeProperties_database')]"
+					},
+					"ls_source_sql_server_adls_properties_typeProperties_userName": {
+						"value": "[parameters('ls_source_sql_server_adls_properties_typeProperties_userName')]"
 					}
 				}
 			},
@@ -658,6 +701,12 @@
 					},
 					"trigger1_properties_typeProperties_scope": {
 						"value": "[parameters('trigger1_properties_typeProperties_scope')]"
+					},
+					"Tumpling_properties_pipeline_parameters_startdata": {
+						"value": "[parameters('Tumpling_properties_pipeline_parameters_startdata')]"
+					},
+					"Tumpling_properties_pipeline_parameters_enddata": {
+						"value": "[parameters('Tumpling_properties_pipeline_parameters_enddata')]"
 					}
 				}
 			},

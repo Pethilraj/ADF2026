@@ -32,6 +32,9 @@
 		"ds_source_password": {
 			"value": ""
 		},
+		"ls_Tumbling_server_blob_password": {
+			"value": ""
+		},
 		"ls_adls_csv_accountKey": {
 			"value": ""
 		},
@@ -72,6 +75,9 @@
 			"value": ""
 		},
 		"ls_multi_parquet_accountKey": {
+			"value": ""
+		},
+		"ls_sink_tumbling_server_blob_connectionString": {
 			"value": ""
 		},
 		"ls_source_password": {
@@ -138,6 +144,15 @@
 			"value": "AdventureWorks2025"
 		},
 		"ds_source_properties_typeProperties_userName": {
+			"value": "Pethilraj"
+		},
+		"ls_Tumbling_server_blob_properties_typeProperties_server": {
+			"value": "DESKTOP-00IFFIA\\SQLEXPRESS"
+		},
+		"ls_Tumbling_server_blob_properties_typeProperties_database": {
+			"value": "AdventureWorks2025"
+		},
+		"ls_Tumbling_server_blob_properties_typeProperties_userName": {
 			"value": "Pethilraj"
 		},
 		"ls_adls_csv_properties_typeProperties_url": {
@@ -247,6 +262,12 @@
 		},
 		"trigger1_properties_typeProperties_scope": {
 			"value": "/subscriptions/c19ca210-ae3a-4f21-ba62-58fc39df6105/resourceGroups/rgdevadcbksa/providers/Microsoft.Storage/storageAccounts/saadlsmultiplecsv"
+		},
+		"Tumpling_properties_pipeline_parameters_startdata": {
+			"value": "@trigger().outputs.windowstarttime"
+		},
+		"Tumpling_properties_pipeline_parameters_enddata": {
+			"value": "@trigger().outputs.windowEndtime"
 		}
 	}
 }
