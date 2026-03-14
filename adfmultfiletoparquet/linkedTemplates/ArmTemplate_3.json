@@ -11,11 +11,11 @@
 			"type": "string",
 			"defaultValue": "/subscriptions/c19ca210-ae3a-4f21-ba62-58fc39df6105/resourceGroups/rgdevadcbksa/providers/Microsoft.Storage/storageAccounts/saadlsmultiplecsv"
 		},
-		"Tumbling_properties_pipeline_parameters_startdata": {
+		"trigger2_properties_pipeline_parameters_startdata": {
 			"type": "string",
 			"defaultValue": "@trigger().outputs.windowstarttime"
 		},
-		"Tumbling_properties_pipeline_parameters_enddata": {
+		"trigger2_properties_pipeline_parameters_enddata": {
 			"type": "string",
 			"defaultValue": "@trigger().outputs.windowEndtime"
 		}
@@ -505,7 +505,7 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Tumbling')]",
+			"name": "[concat(parameters('factoryName'), '/trigger2')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -517,13 +517,13 @@
 						"type": "PipelineReference"
 					},
 					"parameters": {
-						"startdata": "[parameters('Tumbling_properties_pipeline_parameters_startdata')]",
-						"enddata": "[parameters('Tumbling_properties_pipeline_parameters_enddata')]"
+						"startdata": "[parameters('trigger2_properties_pipeline_parameters_startdata')]",
+						"enddata": "[parameters('trigger2_properties_pipeline_parameters_enddata')]"
 					}
 				},
 				"type": "TumblingWindowTrigger",
 				"typeProperties": {
-					"frequency": "Minute",
+					"frequency": "Hour",
 					"interval": 24,
 					"startTime": "2025-06-21T00:00:00Z",
 					"endTime": "2025-06-23T00:00:00Z",
