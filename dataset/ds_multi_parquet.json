@@ -5,12 +5,25 @@
 			"referenceName": "ls_multi_parquet",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"tablename": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "Parquet",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileSystem": "output"
+				"fileName": {
+					"value": "@concat(dataset().tablename,'_',formatDateTime(utcNow(),'yyyyMMddHHmmss'),'.parquet')",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@concat(dataset().tablename,'/',formatDateTime(utcNow(),'yyyy/MM/dd'))",
+					"type": "Expression"
+				},
+				"fileSystem": "adfmigration"
 			},
 			"compressionCodec": "snappy"
 		},
