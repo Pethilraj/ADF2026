@@ -1,0 +1,21 @@
+{
+	"name": "ls_onprem_server",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"server": "DESKTOP-00IFFIA\\SQLEXPRESS",
+			"database": "ADF_Migration",
+			"encrypt": "optional",
+			"trustServerCertificate": false,
+			"authenticationType": "SQL",
+			"userName": "Pethilraj",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI0YjdlYzIzYS1jZjYxLTQ2OTctYjAyNS0xMGIwOGQyYTUzNmMiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "IrOnpremSQL",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
