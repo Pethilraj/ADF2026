@@ -80,7 +80,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "ds_multi_parquet",
+						"referenceName": "ds_multi_parquet1",
 						"type": "DatasetReference"
 					}
 				]

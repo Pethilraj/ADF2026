@@ -1,0 +1,18 @@
+{
+	"name": "ds_multi_parquet1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_multi_parquet1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
