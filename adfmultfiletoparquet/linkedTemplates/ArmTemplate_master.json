@@ -11,6 +11,14 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_LOOKUP_SQLTABLE'"
 		},
+		"LS_ONPREM_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_ONPREM'"
+		},
+		"LS_ONPREM_CLOUDSQL_KEYVAULT_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_ONPREM_CLOUDSQL_KEYVAULT'"
+		},
 		"LS_SERVER_ADLS_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_SERVER_ADLS'"
@@ -34,6 +42,10 @@
 		"SqlServer1_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'SqlServer1'"
+		},
+		"SqlServer2_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'SqlServer2'"
 		},
 		"ds_lookup_demo_sink_accountKey": {
 			"type": "secureString",
@@ -103,6 +115,18 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'ls_multi_parquet'"
 		},
+		"ls_onprem_server_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'ls_onprem_server'"
+		},
+		"ls_sink_adls_parquet_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_sink_adls_parquet'"
+		},
+		"ls_sink_tub_blob_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_sink_tub_blob'"
+		},
 		"ls_sink_tumbling_server_blob_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ls_sink_tumbling_server_blob'"
@@ -115,9 +139,13 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'ls_source_sql_server_adls'"
 		},
-		"ls_sink_tub_blob_connectionString": {
+		"ls_multi_parquet1_accountKey": {
 			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'ls_sink_tub_blob'"
+			"metadata": "Secure string for 'accountKey' of 'ls_multi_parquet1'"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://Keyvaultrgdevadcbksa.vault.azure.net/"
 		},
 		"LS_LOOKUP_SQLTABLE_properties_typeProperties_server": {
 			"type": "string",
@@ -128,6 +156,30 @@
 			"defaultValue": "AdventureWorks2025"
 		},
 		"LS_LOOKUP_SQLTABLE_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Pethilraj"
+		},
+		"LS_ONPREM_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "DESKTOP-00IFFIA\\SQLEXPRESS"
+		},
+		"LS_ONPREM_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "AdventureWorks2025"
+		},
+		"LS_ONPREM_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Pethilraj"
+		},
+		"LS_ONPREM_CLOUDSQL_KEYVAULT_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "DESKTOP-00IFFIA\\SQLEXPRESS"
+		},
+		"LS_ONPREM_CLOUDSQL_KEYVAULT_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "AdventureWorks2025"
+		},
+		"LS_ONPREM_CLOUDSQL_KEYVAULT_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "Pethilraj"
 		},
@@ -183,6 +235,18 @@
 			"type": "string",
 			"defaultValue": "Pethilraj"
 		},
+		"SqlServer2_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "DESKTOP-00IFFIA\\SQLEXPRESS"
+		},
+		"SqlServer2_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "ADF_Migration"
+		},
+		"SqlServer2_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Pethilraj"
+		},
 		"ds_lookup_demo_sink_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://saadlsmultifileparquet.dfs.core.windows.net/"
@@ -234,6 +298,18 @@
 		"ls_getmetadat_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "Pethilraj"
+		},
+		"ls_keyvault_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "sqlservertesti.database.windows.net"
+		},
+		"ls_keyvault_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "azuredatatest"
+		},
+		"ls_keyvault_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "adminuser"
 		},
 		"ls_logging_properties_typeProperties_url": {
 			"type": "string",
@@ -327,6 +403,22 @@
 			"type": "string",
 			"defaultValue": "https://saadlsmultifileparquet.dfs.core.windows.net"
 		},
+		"ls_onprem_server_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "DESKTOP-00IFFIA\\SQLEXPRESS"
+		},
+		"ls_onprem_server_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "ADF_Migration"
+		},
+		"ls_onprem_server_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Pethilraj"
+		},
+		"ls_sink_adls_parquet_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://saadlsmultifileparquet.dfs.core.windows.net/"
+		},
 		"ls_source_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "DESKTOP-00IFFIA\\SQLEXPRESS"
@@ -362,6 +454,10 @@
 		"tub_properties_pipeline_parameters_enddata": {
 			"type": "string",
 			"defaultValue": "@trigger().outputs.windowEndtime"
+		},
+		"ls_multi_parquet1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://saadlsmultifileparquet.dfs.core.windows.net/"
 		},
 		"containerUri": {
 			"type": "string",
@@ -420,14 +516,20 @@
 					"ls_multi_parquet_accountKey": {
 						"value": "[parameters('ls_multi_parquet_accountKey')]"
 					},
+					"ls_sink_adls_parquet_accountKey": {
+						"value": "[parameters('ls_sink_adls_parquet_accountKey')]"
+					},
+					"ls_sink_tub_blob_connectionString": {
+						"value": "[parameters('ls_sink_tub_blob_connectionString')]"
+					},
 					"ls_sink_tumbling_server_blob_connectionString": {
 						"value": "[parameters('ls_sink_tumbling_server_blob_connectionString')]"
 					},
 					"ls_source_password": {
 						"value": "[parameters('ls_source_password')]"
 					},
-					"ls_sink_tub_blob_connectionString": {
-						"value": "[parameters('ls_sink_tub_blob_connectionString')]"
+					"AzureKeyVault1_properties_typeProperties_baseUrl": {
+						"value": "[parameters('AzureKeyVault1_properties_typeProperties_baseUrl')]"
 					},
 					"LS_Sink_SqlServer_Adls_Parq_Migration_properties_typeProperties_url": {
 						"value": "[parameters('LS_Sink_SqlServer_Adls_Parq_Migration_properties_typeProperties_url')]"
@@ -459,6 +561,9 @@
 					"ls_multi_parquet_properties_typeProperties_url": {
 						"value": "[parameters('ls_multi_parquet_properties_typeProperties_url')]"
 					},
+					"ls_sink_adls_parquet_properties_typeProperties_url": {
+						"value": "[parameters('ls_sink_adls_parquet_properties_typeProperties_url')]"
+					},
 					"ls_source_properties_typeProperties_server": {
 						"value": "[parameters('ls_source_properties_typeProperties_server')]"
 					},
@@ -486,8 +591,17 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
+					"ls_multi_parquet1_accountKey": {
+						"value": "[parameters('ls_multi_parquet1_accountKey')]"
+					},
 					"LS_LOOKUP_SQLTABLE_password": {
 						"value": "[parameters('LS_LOOKUP_SQLTABLE_password')]"
+					},
+					"LS_ONPREM_password": {
+						"value": "[parameters('LS_ONPREM_password')]"
+					},
+					"LS_ONPREM_CLOUDSQL_KEYVAULT_password": {
+						"value": "[parameters('LS_ONPREM_CLOUDSQL_KEYVAULT_password')]"
 					},
 					"LS_SERVER_ADLS_password": {
 						"value": "[parameters('LS_SERVER_ADLS_password')]"
@@ -501,26 +615,11 @@
 					"SqlServer1_password": {
 						"value": "[parameters('SqlServer1_password')]"
 					},
-					"ds_source_password": {
-						"value": "[parameters('ds_source_password')]"
+					"SqlServer2_password": {
+						"value": "[parameters('SqlServer2_password')]"
 					},
-					"ls_Tumbling_server_blob_password": {
-						"value": "[parameters('ls_Tumbling_server_blob_password')]"
-					},
-					"ls_getmetadat_password": {
-						"value": "[parameters('ls_getmetadat_password')]"
-					},
-					"ls_looku_demo_source_password": {
-						"value": "[parameters('ls_looku_demo_source_password')]"
-					},
-					"ls_lookup_password": {
-						"value": "[parameters('ls_lookup_password')]"
-					},
-					"ls_lookup2_password": {
-						"value": "[parameters('ls_lookup2_password')]"
-					},
-					"ls_lookup_demo_password": {
-						"value": "[parameters('ls_lookup_demo_password')]"
+					"ls_multi_parquet1_properties_typeProperties_url": {
+						"value": "[parameters('ls_multi_parquet1_properties_typeProperties_url')]"
 					},
 					"LS_LOOKUP_SQLTABLE_properties_typeProperties_server": {
 						"value": "[parameters('LS_LOOKUP_SQLTABLE_properties_typeProperties_server')]"
@@ -530,6 +629,24 @@
 					},
 					"LS_LOOKUP_SQLTABLE_properties_typeProperties_userName": {
 						"value": "[parameters('LS_LOOKUP_SQLTABLE_properties_typeProperties_userName')]"
+					},
+					"LS_ONPREM_properties_typeProperties_server": {
+						"value": "[parameters('LS_ONPREM_properties_typeProperties_server')]"
+					},
+					"LS_ONPREM_properties_typeProperties_database": {
+						"value": "[parameters('LS_ONPREM_properties_typeProperties_database')]"
+					},
+					"LS_ONPREM_properties_typeProperties_userName": {
+						"value": "[parameters('LS_ONPREM_properties_typeProperties_userName')]"
+					},
+					"LS_ONPREM_CLOUDSQL_KEYVAULT_properties_typeProperties_server": {
+						"value": "[parameters('LS_ONPREM_CLOUDSQL_KEYVAULT_properties_typeProperties_server')]"
+					},
+					"LS_ONPREM_CLOUDSQL_KEYVAULT_properties_typeProperties_database": {
+						"value": "[parameters('LS_ONPREM_CLOUDSQL_KEYVAULT_properties_typeProperties_database')]"
+					},
+					"LS_ONPREM_CLOUDSQL_KEYVAULT_properties_typeProperties_userName": {
+						"value": "[parameters('LS_ONPREM_CLOUDSQL_KEYVAULT_properties_typeProperties_userName')]"
 					},
 					"LS_SERVER_ADLS_properties_typeProperties_server": {
 						"value": "[parameters('LS_SERVER_ADLS_properties_typeProperties_server')]"
@@ -567,6 +684,68 @@
 					"SqlServer1_properties_typeProperties_userName": {
 						"value": "[parameters('SqlServer1_properties_typeProperties_userName')]"
 					},
+					"SqlServer2_properties_typeProperties_server": {
+						"value": "[parameters('SqlServer2_properties_typeProperties_server')]"
+					},
+					"SqlServer2_properties_typeProperties_database": {
+						"value": "[parameters('SqlServer2_properties_typeProperties_database')]"
+					},
+					"SqlServer2_properties_typeProperties_userName": {
+						"value": "[parameters('SqlServer2_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adfmultfiletoparquet_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "adfmultfiletoparquet_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ds_source_password": {
+						"value": "[parameters('ds_source_password')]"
+					},
+					"ls_Tumbling_server_blob_password": {
+						"value": "[parameters('ls_Tumbling_server_blob_password')]"
+					},
+					"ls_getmetadat_password": {
+						"value": "[parameters('ls_getmetadat_password')]"
+					},
+					"ls_looku_demo_source_password": {
+						"value": "[parameters('ls_looku_demo_source_password')]"
+					},
+					"ls_lookup_password": {
+						"value": "[parameters('ls_lookup_password')]"
+					},
+					"ls_lookup2_password": {
+						"value": "[parameters('ls_lookup2_password')]"
+					},
+					"ls_lookup_demo_password": {
+						"value": "[parameters('ls_lookup_demo_password')]"
+					},
+					"ls_lookup_demo_source_password": {
+						"value": "[parameters('ls_lookup_demo_source_password')]"
+					},
+					"ls_lookup_tablewise_password": {
+						"value": "[parameters('ls_lookup_tablewise_password')]"
+					},
+					"ls_onprem_server_password": {
+						"value": "[parameters('ls_onprem_server_password')]"
+					},
+					"ls_source_sql_server_adls_password": {
+						"value": "[parameters('ls_source_sql_server_adls_password')]"
+					},
 					"ds_source_properties_typeProperties_server": {
 						"value": "[parameters('ds_source_properties_typeProperties_server')]"
 					},
@@ -593,6 +772,15 @@
 					},
 					"ls_getmetadat_properties_typeProperties_userName": {
 						"value": "[parameters('ls_getmetadat_properties_typeProperties_userName')]"
+					},
+					"ls_keyvault_properties_typeProperties_server": {
+						"value": "[parameters('ls_keyvault_properties_typeProperties_server')]"
+					},
+					"ls_keyvault_properties_typeProperties_database": {
+						"value": "[parameters('ls_keyvault_properties_typeProperties_database')]"
+					},
+					"ls_keyvault_properties_typeProperties_userName": {
+						"value": "[parameters('ls_keyvault_properties_typeProperties_userName')]"
 					},
 					"ls_looku_demo_source_properties_typeProperties_server": {
 						"value": "[parameters('ls_looku_demo_source_properties_typeProperties_server')]"
@@ -629,35 +817,6 @@
 					},
 					"ls_lookup_demo_properties_typeProperties_userName": {
 						"value": "[parameters('ls_lookup_demo_properties_typeProperties_userName')]"
-					}
-				}
-			},
-			"dependsOn": [
-				"[resourceId('Microsoft.Resources/deployments', 'adfmultfiletoparquet_ArmTemplate_0')]"
-			]
-		},
-		{
-			"name": "adfmultfiletoparquet_ArmTemplate_2",
-			"type": "Microsoft.Resources/deployments",
-			"apiVersion": "2024-03-01",
-			"properties": {
-				"mode": "incremental",
-				"templateLink": {
-					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
-					"contentVersion": "1.0.0.0"
-				},
-				"parameters": {
-					"factoryName": {
-						"value": "[parameters('factoryName')]"
-					},
-					"ls_lookup_demo_source_password": {
-						"value": "[parameters('ls_lookup_demo_source_password')]"
-					},
-					"ls_lookup_tablewise_password": {
-						"value": "[parameters('ls_lookup_tablewise_password')]"
-					},
-					"ls_source_sql_server_adls_password": {
-						"value": "[parameters('ls_source_sql_server_adls_password')]"
 					},
 					"ls_lookup_demo_source_properties_typeProperties_server": {
 						"value": "[parameters('ls_lookup_demo_source_properties_typeProperties_server')]"
@@ -676,6 +835,15 @@
 					},
 					"ls_lookup_tablewise_properties_typeProperties_userName": {
 						"value": "[parameters('ls_lookup_tablewise_properties_typeProperties_userName')]"
+					},
+					"ls_onprem_server_properties_typeProperties_server": {
+						"value": "[parameters('ls_onprem_server_properties_typeProperties_server')]"
+					},
+					"ls_onprem_server_properties_typeProperties_database": {
+						"value": "[parameters('ls_onprem_server_properties_typeProperties_database')]"
+					},
+					"ls_onprem_server_properties_typeProperties_userName": {
+						"value": "[parameters('ls_onprem_server_properties_typeProperties_userName')]"
 					},
 					"ls_source_sql_server_adls_properties_typeProperties_server": {
 						"value": "[parameters('ls_source_sql_server_adls_properties_typeProperties_server')]"
@@ -705,6 +873,26 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adfmultfiletoparquet_ArmTemplate_2')]"
+			]
+		},
+		{
+			"name": "adfmultfiletoparquet_ArmTemplate_4",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_4.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
 					},
 					"trigger1_properties_typeProperties_scope": {
 						"value": "[parameters('trigger1_properties_typeProperties_scope')]"
@@ -718,7 +906,7 @@
 				}
 			},
 			"dependsOn": [
-				"[resourceId('Microsoft.Resources/deployments', 'adfmultfiletoparquet_ArmTemplate_2')]"
+				"[resourceId('Microsoft.Resources/deployments', 'adfmultfiletoparquet_ArmTemplate_3')]"
 			]
 		}
 	]

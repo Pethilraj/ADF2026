@@ -7,6 +7,34 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "adfmultfiletoparquet"
 		},
+		"ds_source_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'ds_source'"
+		},
+		"ls_Tumbling_server_blob_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'ls_Tumbling_server_blob'"
+		},
+		"ls_getmetadat_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'ls_getmetadat'"
+		},
+		"ls_looku_demo_source_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'ls_looku_demo_source'"
+		},
+		"ls_lookup_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'ls_lookup'"
+		},
+		"ls_lookup2_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'ls_lookup2'"
+		},
+		"ls_lookup_demo_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'ls_lookup_demo'"
+		},
 		"ls_lookup_demo_source_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'ls_lookup_demo_source'"
@@ -15,9 +43,109 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'ls_lookup_tablewise'"
 		},
+		"ls_onprem_server_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'ls_onprem_server'"
+		},
 		"ls_source_sql_server_adls_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'ls_source_sql_server_adls'"
+		},
+		"ds_source_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "DESKTOP-00IFFIA\\SQLEXPRESS"
+		},
+		"ds_source_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "AdventureWorks2025"
+		},
+		"ds_source_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Pethilraj"
+		},
+		"ls_Tumbling_server_blob_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "DESKTOP-00IFFIA\\SQLEXPRESS"
+		},
+		"ls_Tumbling_server_blob_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "AdventureWorks2025"
+		},
+		"ls_Tumbling_server_blob_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Pethilraj"
+		},
+		"ls_getmetadat_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "DESKTOP-00IFFIA\\SQLEXPRESS"
+		},
+		"ls_getmetadat_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "AdventureWorks2025"
+		},
+		"ls_getmetadat_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Pethilraj"
+		},
+		"ls_keyvault_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "sqlservertesti.database.windows.net"
+		},
+		"ls_keyvault_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "azuredatatest"
+		},
+		"ls_keyvault_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "adminuser"
+		},
+		"ls_looku_demo_source_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "DESKTOP-00IFFIA\\SQLEXPRESS"
+		},
+		"ls_looku_demo_source_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "AdventureWorks2025"
+		},
+		"ls_looku_demo_source_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Pethilraj"
+		},
+		"ls_lookup_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "DESKTOP-00IFFIA\\SQLEXPRESS"
+		},
+		"ls_lookup_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "AdventureWorks2025"
+		},
+		"ls_lookup_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Pethilraj"
+		},
+		"ls_lookup2_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "DESKTOP-00IFFIA\\SQLEXPRESS"
+		},
+		"ls_lookup2_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "AdventureWorks2025"
+		},
+		"ls_lookup2_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Pethilraj"
+		},
+		"ls_lookup_demo_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "DESKTOP-00IFFIA\\SQLEXPRESS"
+		},
+		"ls_lookup_demo_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "AdventureWorks2025"
+		},
+		"ls_lookup_demo_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Pethilraj"
 		},
 		"ls_lookup_demo_source_properties_typeProperties_server": {
 			"type": "string",
@@ -43,6 +171,18 @@
 			"type": "string",
 			"defaultValue": "Pethilraj"
 		},
+		"ls_onprem_server_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "DESKTOP-00IFFIA\\SQLEXPRESS"
+		},
+		"ls_onprem_server_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "ADF_Migration"
+		},
+		"ls_onprem_server_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Pethilraj"
+		},
 		"ls_source_sql_server_adls_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "DESKTOP-00IFFIA\\SQLEXPRESS"
@@ -60,6 +200,214 @@
 		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
 	},
 	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/ds_source')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SqlServer",
+				"typeProperties": {
+					"server": "[parameters('ds_source_properties_typeProperties_server')]",
+					"database": "[parameters('ds_source_properties_typeProperties_database')]",
+					"encrypt": "optional",
+					"trustServerCertificate": false,
+					"authenticationType": "SQL",
+					"userName": "[parameters('ds_source_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('ds_source_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "IrOnpremSQL",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ls_Tumbling_server_blob')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SqlServer",
+				"typeProperties": {
+					"server": "[parameters('ls_Tumbling_server_blob_properties_typeProperties_server')]",
+					"database": "[parameters('ls_Tumbling_server_blob_properties_typeProperties_database')]",
+					"encrypt": "optional",
+					"trustServerCertificate": false,
+					"authenticationType": "SQL",
+					"userName": "[parameters('ls_Tumbling_server_blob_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('ls_Tumbling_server_blob_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "IrOnpremSQL",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ls_getmetadat')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SqlServer",
+				"typeProperties": {
+					"server": "[parameters('ls_getmetadat_properties_typeProperties_server')]",
+					"database": "[parameters('ls_getmetadat_properties_typeProperties_database')]",
+					"encrypt": "optional",
+					"trustServerCertificate": false,
+					"authenticationType": "SQL",
+					"userName": "[parameters('ls_getmetadat_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('ls_getmetadat_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "IrOnpremSQL",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ls_keyvault')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"server": "[parameters('ls_keyvault_properties_typeProperties_server')]",
+					"database": "[parameters('ls_keyvault_properties_typeProperties_database')]",
+					"encrypt": "mandatory",
+					"trustServerCertificate": false,
+					"authenticationType": "SQL",
+					"userName": "[parameters('ls_keyvault_properties_typeProperties_userName')]",
+					"password": {
+						"type": "AzureKeyVaultSecret",
+						"store": {
+							"referenceName": "AzureKeyVault1",
+							"type": "LinkedServiceReference"
+						},
+						"secretName": "secretdat"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ls_looku_demo_source')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SqlServer",
+				"typeProperties": {
+					"server": "[parameters('ls_looku_demo_source_properties_typeProperties_server')]",
+					"database": "[parameters('ls_looku_demo_source_properties_typeProperties_database')]",
+					"encrypt": "optional",
+					"trustServerCertificate": false,
+					"authenticationType": "SQL",
+					"userName": "[parameters('ls_looku_demo_source_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('ls_looku_demo_source_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "IrOnpremSQL",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ls_lookup')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SqlServer",
+				"typeProperties": {
+					"server": "[parameters('ls_lookup_properties_typeProperties_server')]",
+					"database": "[parameters('ls_lookup_properties_typeProperties_database')]",
+					"encrypt": "optional",
+					"trustServerCertificate": false,
+					"authenticationType": "SQL",
+					"userName": "[parameters('ls_lookup_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('ls_lookup_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "IrOnpremSQL",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ls_lookup2')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SqlServer",
+				"typeProperties": {
+					"server": "[parameters('ls_lookup2_properties_typeProperties_server')]",
+					"database": "[parameters('ls_lookup2_properties_typeProperties_database')]",
+					"encrypt": "optional",
+					"trustServerCertificate": false,
+					"authenticationType": "SQL",
+					"userName": "[parameters('ls_lookup2_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('ls_lookup2_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "IrOnpremSQL",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ls_lookup_demo')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SqlServer",
+				"typeProperties": {
+					"server": "[parameters('ls_lookup_demo_properties_typeProperties_server')]",
+					"database": "[parameters('ls_lookup_demo_properties_typeProperties_database')]",
+					"encrypt": "optional",
+					"trustServerCertificate": false,
+					"authenticationType": "SQL",
+					"userName": "[parameters('ls_lookup_demo_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('ls_lookup_demo_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "IrOnpremSQL",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ls_lookup_demo_source')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
@@ -113,6 +461,32 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/ls_onprem_server')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SqlServer",
+				"typeProperties": {
+					"server": "[parameters('ls_onprem_server_properties_typeProperties_server')]",
+					"database": "[parameters('ls_onprem_server_properties_typeProperties_database')]",
+					"encrypt": "optional",
+					"trustServerCertificate": false,
+					"authenticationType": "SQL",
+					"userName": "[parameters('ls_onprem_server_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('ls_onprem_server_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "IrOnpremSQL",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/ls_source_sql_server_adls')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -139,25 +513,21 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ls_sink_tub_blob')]",
+			"name": "[concat(parameters('factoryName'), '/ds_multi_parquet1')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "ls_sink_tub_blob",
+					"referenceName": "ls_multi_parquet1",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
-				"type": "DelimitedText",
+				"type": "Parquet",
 				"typeProperties": {
 					"location": {
-						"type": "AzureBlobStorageLocation",
-						"container": "output"
+						"type": "AzureBlobFSLocation"
 					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
+					"compressionCodec": "snappy"
 				},
 				"schema": []
 			},
@@ -604,6 +974,76 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/PL_SP_ADF_MIGRATION')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "watermark_upate-procedure",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[UpdateWatermark]",
+							"storedProcedureParameters": {
+								"TableName": {
+									"value": {
+										"value": "@pipeline().parameters.tablename",
+										"type": "Expression"
+									},
+									"type": "String"
+								},
+								"TableSchema": {
+									"value": {
+										"value": "@pipeline().parameters.shemaname",
+										"type": "Expression"
+									},
+									"type": "String"
+								},
+								"WatermarkColumn": {
+									"value": {
+										"value": "@pipeline().parameters.watermarkcolumn",
+										"type": "Expression"
+									},
+									"type": "String"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "ls_onprem_server",
+							"type": "LinkedServiceReference"
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"parameters": {
+					"shemaname": {
+						"type": "string"
+					},
+					"tablename": {
+						"type": "string"
+					},
+					"watermarkcolumn": {
+						"type": "string"
+					}
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_onprem_server')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/PL_SWITCH')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -740,786 +1180,6 @@
 				"annotations": []
 			},
 			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pl_api')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Copyapi",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "RestSource",
-								"httpRequestTimeout": "00:01:40",
-								"requestInterval": "00.00:00:00.010",
-								"requestMethod": "GET",
-								"paginationRules": {
-									"supportRFC5988": "true"
-								}
-							},
-							"sink": {
-								"type": "ParquetSink",
-								"storeSettings": {
-									"type": "AzureBlobFSWriteSettings"
-								},
-								"formatSettings": {
-									"type": "ParquetWriteSettings"
-								}
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"mappings": [
-									{
-										"source": {
-											"path": "$['id']"
-										},
-										"sink": {
-											"name": "id"
-										}
-									},
-									{
-										"source": {
-											"path": "$['Sku']"
-										},
-										"sink": {
-											"name": "Sku"
-										}
-									},
-									{
-										"source": {
-											"path": "$['TP 1']"
-										},
-										"sink": {
-											"name": "TP1"
-										}
-									},
-									{
-										"source": {
-											"path": "$['TP 2']"
-										},
-										"sink": {
-											"name": "TP2"
-										}
-									},
-									{
-										"source": {
-											"path": "$['index']"
-										},
-										"sink": {
-											"name": "index"
-										}
-									},
-									{
-										"source": {
-											"path": "$['Weight']"
-										},
-										"sink": {
-											"name": "Weight"
-										}
-									},
-									{
-										"source": {
-											"path": "$['Catalog']"
-										},
-										"sink": {
-											"name": "Catalog"
-										}
-									},
-									{
-										"source": {
-											"path": "$['MRP Old']"
-										},
-										"sink": {
-											"name": "MRPOld"
-										}
-									},
-									{
-										"source": {
-											"path": "$['Ajio MRP']"
-										},
-										"sink": {
-											"name": "AjioMRP"
-										}
-									},
-									{
-										"source": {
-											"path": "$['Category']"
-										},
-										"sink": {
-											"name": "Category"
-										}
-									},
-									{
-										"source": {
-											"path": "$['Style Id']"
-										},
-										"sink": {
-											"name": "StyleId"
-										}
-									},
-									{
-										"source": {
-											"path": "$['Paytm MRP']"
-										},
-										"sink": {
-											"name": "PaytmMRP"
-										}
-									},
-									{
-										"source": {
-											"path": "$['Amazon MRP']"
-										},
-										"sink": {
-											"name": "AmazonMRP"
-										}
-									},
-									{
-										"source": {
-											"path": "$['Myntra MRP']"
-										},
-										"sink": {
-											"name": "MyntraMRP"
-										}
-									},
-									{
-										"source": {
-											"path": "$['Flipkart MRP']"
-										},
-										"sink": {
-											"name": "FlipkartMRP"
-										}
-									},
-									{
-										"source": {
-											"path": "$['Limeroad MRP']"
-										},
-										"sink": {
-											"name": "LimeroadMRP"
-										}
-									},
-									{
-										"source": {
-											"path": "$['Snapdeal MRP']"
-										},
-										"sink": {
-											"name": "SnapdealMRP"
-										}
-									},
-									{
-										"source": {
-											"path": "$['Final MRP Old']"
-										},
-										"sink": {
-											"name": "FinalMRPOld"
-										}
-									},
-									{
-										"source": {
-											"path": "$['Amazon FBA MRP']"
-										},
-										"sink": {
-											"name": "AmazonFBAMRP"
-										}
-									}
-								]
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "ds_api",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "ds_api_adls_parquet",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"policy": {
-					"elapsedTimeMetric": {}
-				},
-				"annotations": [],
-				"lastPublishTime": "2026-03-05T17:52:59Z"
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pl_multi_csv')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "copy_multifile_parquet",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "DelimitedTextSource",
-								"storeSettings": {
-									"type": "AzureBlobFSReadSettings",
-									"recursive": true,
-									"wildcardFileName": "*csv",
-									"enablePartitionDiscovery": false
-								},
-								"formatSettings": {
-									"type": "DelimitedTextReadSettings"
-								}
-							},
-							"sink": {
-								"type": "ParquetSink",
-								"storeSettings": {
-									"type": "AzureBlobFSWriteSettings"
-								},
-								"formatSettings": {
-									"type": "ParquetWriteSettings"
-								}
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"mappings": [
-									{
-										"source": {
-											"name": "SIC_Code",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "SIC_Code",
-											"type": "String",
-											"physicalType": "UTF8"
-										}
-									},
-									{
-										"source": {
-											"name": "Description",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Description",
-											"type": "String",
-											"physicalType": "UTF8"
-										}
-									}
-								],
-								"typeConversion": true,
-								"typeConversionSettings": {
-									"allowDataTruncation": true,
-									"treatBooleanAsNumber": false
-								}
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "ds_multi_csv",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "ds_multi_parquet",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"policy": {
-					"elapsedTimeMetric": {}
-				},
-				"annotations": [],
-				"lastPublishTime": "2026-03-05T02:20:02Z"
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/DS_CPY_SQLSERVER_BLOB_LOG_STS_PIPELINE')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "LS_SP",
-					"type": "LinkedServiceReference"
-				},
-				"parameters": {
-					"schemaname": {
-						"type": "string"
-					},
-					"tablename": {
-						"type": "string"
-					}
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [
-					{
-						"name": "BusinessEntityID",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "NationalIDNumber",
-						"type": "nvarchar"
-					},
-					{
-						"name": "LoginID",
-						"type": "nvarchar"
-					},
-					{
-						"name": "OrganizationNode",
-						"type": "hierarchyid"
-					},
-					{
-						"name": "OrganizationLevel",
-						"type": "smallint",
-						"precision": 5
-					},
-					{
-						"name": "JobTitle",
-						"type": "nvarchar"
-					},
-					{
-						"name": "BirthDate",
-						"type": "date"
-					},
-					{
-						"name": "MaritalStatus",
-						"type": "nchar"
-					},
-					{
-						"name": "Gender",
-						"type": "nchar"
-					},
-					{
-						"name": "HireDate",
-						"type": "date"
-					},
-					{
-						"name": "SalariedFlag",
-						"type": "bit"
-					},
-					{
-						"name": "VacationHours",
-						"type": "smallint",
-						"precision": 5
-					},
-					{
-						"name": "SickLeaveHours",
-						"type": "smallint",
-						"precision": 5
-					},
-					{
-						"name": "CurrentFlag",
-						"type": "bit"
-					},
-					{
-						"name": "rowguid",
-						"type": "uniqueidentifier"
-					},
-					{
-						"name": "ModifiedDate",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					}
-				],
-				"typeProperties": {
-					"schema": {
-						"value": "@dataset().schemaname",
-						"type": "Expression"
-					},
-					"table": {
-						"value": "@dataset().tablename",
-						"type": "Expression"
-					}
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/DS_LOOKUP_SQLTABLE')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "LS_LOOKUP_SQLTABLE",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [
-					{
-						"name": "DepartmentID",
-						"type": "smallint",
-						"precision": 5
-					},
-					{
-						"name": "Name",
-						"type": "nvarchar"
-					},
-					{
-						"name": "GroupName",
-						"type": "nvarchar"
-					},
-					{
-						"name": "ModifiedDate",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					}
-				],
-				"typeProperties": {
-					"schema": "HumanResources",
-					"table": "Department"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/DS_Source_SqlServer_Adls_Migration')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "LS_Source_SqlServer_Adls_Migration",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [
-					{
-						"name": "AddressID",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "AddressLine1",
-						"type": "nvarchar"
-					},
-					{
-						"name": "AddressLine2",
-						"type": "nvarchar"
-					},
-					{
-						"name": "City",
-						"type": "nvarchar"
-					},
-					{
-						"name": "StateProvinceID",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "PostalCode",
-						"type": "nvarchar"
-					},
-					{
-						"name": "SpatialLocation",
-						"type": "geography"
-					},
-					{
-						"name": "rowguid",
-						"type": "uniqueidentifier"
-					},
-					{
-						"name": "ModifiedDate",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					}
-				],
-				"typeProperties": {
-					"schema": "Person",
-					"table": "Person"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SqlServerTable1')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "SqlServer1",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [
-					{
-						"name": "AddressID",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "AddressLine1",
-						"type": "nvarchar"
-					},
-					{
-						"name": "AddressLine2",
-						"type": "nvarchar"
-					},
-					{
-						"name": "City",
-						"type": "nvarchar"
-					},
-					{
-						"name": "StateProvinceID",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "PostalCode",
-						"type": "nvarchar"
-					},
-					{
-						"name": "SpatialLocation",
-						"type": "geography"
-					},
-					{
-						"name": "rowguid",
-						"type": "uniqueidentifier"
-					},
-					{
-						"name": "ModifiedDate",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					}
-				],
-				"typeProperties": {
-					"schema": "Person",
-					"table": "Address"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ds_getmetadata')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "ls_getmetadat",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [
-					{
-						"name": "DepartmentID",
-						"type": "smallint",
-						"precision": 5
-					},
-					{
-						"name": "Name",
-						"type": "nvarchar"
-					},
-					{
-						"name": "GroupName",
-						"type": "nvarchar"
-					},
-					{
-						"name": "ModifiedDate",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					}
-				],
-				"typeProperties": {
-					"schema": "HumanResources",
-					"table": "Department"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ds_lookup')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "ls_lookup",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [
-					{
-						"name": "BusinessEntityID",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "NationalIDNumber",
-						"type": "nvarchar"
-					},
-					{
-						"name": "LoginID",
-						"type": "nvarchar"
-					},
-					{
-						"name": "OrganizationNode",
-						"type": "hierarchyid"
-					},
-					{
-						"name": "OrganizationLevel",
-						"type": "smallint",
-						"precision": 5
-					},
-					{
-						"name": "JobTitle",
-						"type": "nvarchar"
-					},
-					{
-						"name": "BirthDate",
-						"type": "date"
-					},
-					{
-						"name": "MaritalStatus",
-						"type": "nchar"
-					},
-					{
-						"name": "Gender",
-						"type": "nchar"
-					},
-					{
-						"name": "HireDate",
-						"type": "date"
-					},
-					{
-						"name": "SalariedFlag",
-						"type": "bit"
-					},
-					{
-						"name": "VacationHours",
-						"type": "smallint",
-						"precision": 5
-					},
-					{
-						"name": "SickLeaveHours",
-						"type": "smallint",
-						"precision": 5
-					},
-					{
-						"name": "CurrentFlag",
-						"type": "bit"
-					},
-					{
-						"name": "rowguid",
-						"type": "uniqueidentifier"
-					},
-					{
-						"name": "ModifiedDate",
-						"type": "datetime",
-						"precision": 23,
-						"scale": 3
-					}
-				],
-				"typeProperties": {
-					"schema": "HumanResources",
-					"table": "Employee"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ds_lookup_source')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "ls_lookup",
-					"type": "LinkedServiceReference"
-				},
-				"parameters": {
-					"db_name": {
-						"type": "string"
-					},
-					"table_name": {
-						"type": "string"
-					}
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": {
-						"value": "@dataset().db_name",
-						"type": "Expression"
-					},
-					"table": {
-						"value": "@dataset().table_name",
-						"type": "Expression"
-					}
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ds_lookup_tablewise')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "ls_lookup_tablewise",
-					"type": "LinkedServiceReference"
-				},
-				"parameters": {
-					"db_name": {
-						"type": "string"
-					},
-					"table_name": {
-						"type": "string"
-					}
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": {
-						"value": "@dataset().db_name",
-						"type": "Expression"
-					},
-					"table": {
-						"value": "@dataset().table_name",
-						"type": "Expression"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_lookup_tablewise')]"
-			]
 		}
 	]
 }

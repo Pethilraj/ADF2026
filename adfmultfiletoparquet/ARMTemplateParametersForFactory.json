@@ -8,6 +8,12 @@
 		"LS_LOOKUP_SQLTABLE_password": {
 			"value": ""
 		},
+		"LS_ONPREM_password": {
+			"value": ""
+		},
+		"LS_ONPREM_CLOUDSQL_KEYVAULT_password": {
+			"value": ""
+		},
 		"LS_SERVER_ADLS_password": {
 			"value": ""
 		},
@@ -24,6 +30,9 @@
 			"value": ""
 		},
 		"SqlServer1_password": {
+			"value": ""
+		},
+		"SqlServer2_password": {
 			"value": ""
 		},
 		"ds_lookup_demo_sink_accountKey": {
@@ -77,6 +86,15 @@
 		"ls_multi_parquet_accountKey": {
 			"value": ""
 		},
+		"ls_onprem_server_password": {
+			"value": ""
+		},
+		"ls_sink_adls_parquet_accountKey": {
+			"value": ""
+		},
+		"ls_sink_tub_blob_connectionString": {
+			"value": ""
+		},
 		"ls_sink_tumbling_server_blob_connectionString": {
 			"value": ""
 		},
@@ -86,8 +104,11 @@
 		"ls_source_sql_server_adls_password": {
 			"value": ""
 		},
-		"ls_sink_tub_blob_connectionString": {
+		"ls_multi_parquet1_accountKey": {
 			"value": ""
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://Keyvaultrgdevadcbksa.vault.azure.net/"
 		},
 		"LS_LOOKUP_SQLTABLE_properties_typeProperties_server": {
 			"value": "DESKTOP-00IFFIA\\SQLEXPRESS"
@@ -96,6 +117,24 @@
 			"value": "AdventureWorks2025"
 		},
 		"LS_LOOKUP_SQLTABLE_properties_typeProperties_userName": {
+			"value": "Pethilraj"
+		},
+		"LS_ONPREM_properties_typeProperties_server": {
+			"value": "DESKTOP-00IFFIA\\SQLEXPRESS"
+		},
+		"LS_ONPREM_properties_typeProperties_database": {
+			"value": "AdventureWorks2025"
+		},
+		"LS_ONPREM_properties_typeProperties_userName": {
+			"value": "Pethilraj"
+		},
+		"LS_ONPREM_CLOUDSQL_KEYVAULT_properties_typeProperties_server": {
+			"value": "DESKTOP-00IFFIA\\SQLEXPRESS"
+		},
+		"LS_ONPREM_CLOUDSQL_KEYVAULT_properties_typeProperties_database": {
+			"value": "AdventureWorks2025"
+		},
+		"LS_ONPREM_CLOUDSQL_KEYVAULT_properties_typeProperties_userName": {
 			"value": "Pethilraj"
 		},
 		"LS_SERVER_ADLS_properties_typeProperties_server": {
@@ -137,6 +176,15 @@
 		"SqlServer1_properties_typeProperties_userName": {
 			"value": "Pethilraj"
 		},
+		"SqlServer2_properties_typeProperties_server": {
+			"value": "DESKTOP-00IFFIA\\SQLEXPRESS"
+		},
+		"SqlServer2_properties_typeProperties_database": {
+			"value": "ADF_Migration"
+		},
+		"SqlServer2_properties_typeProperties_userName": {
+			"value": "Pethilraj"
+		},
 		"ds_lookup_demo_sink_properties_typeProperties_url": {
 			"value": "https://saadlsmultifileparquet.dfs.core.windows.net/"
 		},
@@ -175,6 +223,15 @@
 		},
 		"ls_getmetadat_properties_typeProperties_userName": {
 			"value": "Pethilraj"
+		},
+		"ls_keyvault_properties_typeProperties_server": {
+			"value": "sqlservertesti.database.windows.net"
+		},
+		"ls_keyvault_properties_typeProperties_database": {
+			"value": "azuredatatest"
+		},
+		"ls_keyvault_properties_typeProperties_userName": {
+			"value": "adminuser"
 		},
 		"ls_logging_properties_typeProperties_url": {
 			"value": "https://saadlsmultiplecsv.dfs.core.windows.net/"
@@ -245,6 +302,18 @@
 		"ls_multi_parquet_properties_typeProperties_url": {
 			"value": "https://saadlsmultifileparquet.dfs.core.windows.net"
 		},
+		"ls_onprem_server_properties_typeProperties_server": {
+			"value": "DESKTOP-00IFFIA\\SQLEXPRESS"
+		},
+		"ls_onprem_server_properties_typeProperties_database": {
+			"value": "ADF_Migration"
+		},
+		"ls_onprem_server_properties_typeProperties_userName": {
+			"value": "Pethilraj"
+		},
+		"ls_sink_adls_parquet_properties_typeProperties_url": {
+			"value": "https://saadlsmultifileparquet.dfs.core.windows.net/"
+		},
 		"ls_source_properties_typeProperties_server": {
 			"value": "DESKTOP-00IFFIA\\SQLEXPRESS"
 		},
@@ -271,6 +340,9 @@
 		},
 		"tub_properties_pipeline_parameters_enddata": {
 			"value": "@trigger().outputs.windowEndtime"
+		},
+		"ls_multi_parquet1_properties_typeProperties_url": {
+			"value": "https://saadlsmultifileparquet.dfs.core.windows.net/"
 		}
 	}
 }

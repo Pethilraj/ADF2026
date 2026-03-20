@@ -7,9 +7,21 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "adfmultfiletoparquet"
 		},
+		"ls_multi_parquet1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_multi_parquet1'"
+		},
 		"LS_LOOKUP_SQLTABLE_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_LOOKUP_SQLTABLE'"
+		},
+		"LS_ONPREM_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_ONPREM'"
+		},
+		"LS_ONPREM_CLOUDSQL_KEYVAULT_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_ONPREM_CLOUDSQL_KEYVAULT'"
 		},
 		"LS_SERVER_ADLS_password": {
 			"type": "secureString",
@@ -27,33 +39,13 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'SqlServer1'"
 		},
-		"ds_source_password": {
+		"SqlServer2_password": {
 			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'ds_source'"
+			"metadata": "Secure string for 'password' of 'SqlServer2'"
 		},
-		"ls_Tumbling_server_blob_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'ls_Tumbling_server_blob'"
-		},
-		"ls_getmetadat_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'ls_getmetadat'"
-		},
-		"ls_looku_demo_source_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'ls_looku_demo_source'"
-		},
-		"ls_lookup_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'ls_lookup'"
-		},
-		"ls_lookup2_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'ls_lookup2'"
-		},
-		"ls_lookup_demo_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'ls_lookup_demo'"
+		"ls_multi_parquet1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://saadlsmultifileparquet.dfs.core.windows.net/"
 		},
 		"LS_LOOKUP_SQLTABLE_properties_typeProperties_server": {
 			"type": "string",
@@ -64,6 +56,30 @@
 			"defaultValue": "AdventureWorks2025"
 		},
 		"LS_LOOKUP_SQLTABLE_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Pethilraj"
+		},
+		"LS_ONPREM_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "DESKTOP-00IFFIA\\SQLEXPRESS"
+		},
+		"LS_ONPREM_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "AdventureWorks2025"
+		},
+		"LS_ONPREM_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Pethilraj"
+		},
+		"LS_ONPREM_CLOUDSQL_KEYVAULT_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "DESKTOP-00IFFIA\\SQLEXPRESS"
+		},
+		"LS_ONPREM_CLOUDSQL_KEYVAULT_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "AdventureWorks2025"
+		},
+		"LS_ONPREM_CLOUDSQL_KEYVAULT_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "Pethilraj"
 		},
@@ -115,87 +131,15 @@
 			"type": "string",
 			"defaultValue": "Pethilraj"
 		},
-		"ds_source_properties_typeProperties_server": {
+		"SqlServer2_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "DESKTOP-00IFFIA\\SQLEXPRESS"
 		},
-		"ds_source_properties_typeProperties_database": {
+		"SqlServer2_properties_typeProperties_database": {
 			"type": "string",
-			"defaultValue": "AdventureWorks2025"
+			"defaultValue": "ADF_Migration"
 		},
-		"ds_source_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "Pethilraj"
-		},
-		"ls_Tumbling_server_blob_properties_typeProperties_server": {
-			"type": "string",
-			"defaultValue": "DESKTOP-00IFFIA\\SQLEXPRESS"
-		},
-		"ls_Tumbling_server_blob_properties_typeProperties_database": {
-			"type": "string",
-			"defaultValue": "AdventureWorks2025"
-		},
-		"ls_Tumbling_server_blob_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "Pethilraj"
-		},
-		"ls_getmetadat_properties_typeProperties_server": {
-			"type": "string",
-			"defaultValue": "DESKTOP-00IFFIA\\SQLEXPRESS"
-		},
-		"ls_getmetadat_properties_typeProperties_database": {
-			"type": "string",
-			"defaultValue": "AdventureWorks2025"
-		},
-		"ls_getmetadat_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "Pethilraj"
-		},
-		"ls_looku_demo_source_properties_typeProperties_server": {
-			"type": "string",
-			"defaultValue": "DESKTOP-00IFFIA\\SQLEXPRESS"
-		},
-		"ls_looku_demo_source_properties_typeProperties_database": {
-			"type": "string",
-			"defaultValue": "AdventureWorks2025"
-		},
-		"ls_looku_demo_source_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "Pethilraj"
-		},
-		"ls_lookup_properties_typeProperties_server": {
-			"type": "string",
-			"defaultValue": "DESKTOP-00IFFIA\\SQLEXPRESS"
-		},
-		"ls_lookup_properties_typeProperties_database": {
-			"type": "string",
-			"defaultValue": "AdventureWorks2025"
-		},
-		"ls_lookup_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "Pethilraj"
-		},
-		"ls_lookup2_properties_typeProperties_server": {
-			"type": "string",
-			"defaultValue": "DESKTOP-00IFFIA\\SQLEXPRESS"
-		},
-		"ls_lookup2_properties_typeProperties_database": {
-			"type": "string",
-			"defaultValue": "AdventureWorks2025"
-		},
-		"ls_lookup2_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "Pethilraj"
-		},
-		"ls_lookup_demo_properties_typeProperties_server": {
-			"type": "string",
-			"defaultValue": "DESKTOP-00IFFIA\\SQLEXPRESS"
-		},
-		"ls_lookup_demo_properties_typeProperties_database": {
-			"type": "string",
-			"defaultValue": "AdventureWorks2025"
-		},
-		"ls_lookup_demo_properties_typeProperties_userName": {
+		"SqlServer2_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "Pethilraj"
 		}
@@ -204,6 +148,72 @@
 		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
 	},
 	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/ls_multi_parquet1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('ls_multi_parquet1_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('ls_multi_parquet1_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DS_SINK_SQLTABLE_BLOB_SP')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_SINK_SQLTABLE_BLOB_SP",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "pethil",
+						"container": "input"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DS_Sink_SqlServer_Adls_Parq_Migration')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_Sink_SqlServer_Adls_Parq_Migration",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": "SqlServer_Adls_Parq_Migration",
+						"fileSystem": "output"
+					},
+					"compressionCodec": "snappy"
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
 		{
 			"name": "[concat(parameters('factoryName'), '/DS_SqlServer_Adls_Migration')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
@@ -434,12 +444,25 @@
 					"referenceName": "ls_multi_parquet",
 					"type": "LinkedServiceReference"
 				},
+				"parameters": {
+					"tablename": {
+						"type": "string"
+					}
+				},
 				"annotations": [],
 				"type": "Parquet",
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"fileSystem": "output"
+						"fileName": {
+							"value": "@concat(dataset().tablename,'_',formatDateTime(utcNow(),'yyyyMMddHHmmss'),'.parquet')",
+							"type": "Expression"
+						},
+						"folderPath": {
+							"value": "@concat(dataset().tablename,'/',formatDateTime(utcNow(),'yyyy/MM/dd'))",
+							"type": "Expression"
+						},
+						"fileSystem": "adfmigration"
 					},
 					"compressionCodec": "snappy"
 				},
@@ -473,6 +496,31 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/ls_sink_tub_blob')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_sink_tub_blob",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"container": "output"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/LS_LOOKUP_SQLTABLE')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -489,6 +537,58 @@
 					"password": {
 						"type": "SecureString",
 						"value": "[parameters('LS_LOOKUP_SQLTABLE_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "IrOnpremSQL",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LS_ONPREM')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SqlServer",
+				"typeProperties": {
+					"server": "[parameters('LS_ONPREM_properties_typeProperties_server')]",
+					"database": "[parameters('LS_ONPREM_properties_typeProperties_database')]",
+					"encrypt": "optional",
+					"trustServerCertificate": false,
+					"authenticationType": "SQL",
+					"userName": "[parameters('LS_ONPREM_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('LS_ONPREM_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "IrOnpremSQL",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LS_ONPREM_CLOUDSQL_KEYVAULT')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SqlServer",
+				"typeProperties": {
+					"server": "[parameters('LS_ONPREM_CLOUDSQL_KEYVAULT_properties_typeProperties_server')]",
+					"database": "[parameters('LS_ONPREM_CLOUDSQL_KEYVAULT_properties_typeProperties_database')]",
+					"encrypt": "optional",
+					"trustServerCertificate": false,
+					"authenticationType": "SQL",
+					"userName": "[parameters('LS_ONPREM_CLOUDSQL_KEYVAULT_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('LS_ONPREM_CLOUDSQL_KEYVAULT_password')]"
 					}
 				},
 				"connectVia": {
@@ -603,178 +703,22 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ds_source')]",
+			"name": "[concat(parameters('factoryName'), '/SqlServer2')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
 				"type": "SqlServer",
 				"typeProperties": {
-					"server": "[parameters('ds_source_properties_typeProperties_server')]",
-					"database": "[parameters('ds_source_properties_typeProperties_database')]",
+					"server": "[parameters('SqlServer2_properties_typeProperties_server')]",
+					"database": "[parameters('SqlServer2_properties_typeProperties_database')]",
 					"encrypt": "optional",
 					"trustServerCertificate": false,
 					"authenticationType": "SQL",
-					"userName": "[parameters('ds_source_properties_typeProperties_userName')]",
+					"userName": "[parameters('SqlServer2_properties_typeProperties_userName')]",
 					"password": {
 						"type": "SecureString",
-						"value": "[parameters('ds_source_password')]"
-					}
-				},
-				"connectVia": {
-					"referenceName": "IrOnpremSQL",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ls_Tumbling_server_blob')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "SqlServer",
-				"typeProperties": {
-					"server": "[parameters('ls_Tumbling_server_blob_properties_typeProperties_server')]",
-					"database": "[parameters('ls_Tumbling_server_blob_properties_typeProperties_database')]",
-					"encrypt": "optional",
-					"trustServerCertificate": false,
-					"authenticationType": "SQL",
-					"userName": "[parameters('ls_Tumbling_server_blob_properties_typeProperties_userName')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('ls_Tumbling_server_blob_password')]"
-					}
-				},
-				"connectVia": {
-					"referenceName": "IrOnpremSQL",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ls_getmetadat')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "SqlServer",
-				"typeProperties": {
-					"server": "[parameters('ls_getmetadat_properties_typeProperties_server')]",
-					"database": "[parameters('ls_getmetadat_properties_typeProperties_database')]",
-					"encrypt": "optional",
-					"trustServerCertificate": false,
-					"authenticationType": "SQL",
-					"userName": "[parameters('ls_getmetadat_properties_typeProperties_userName')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('ls_getmetadat_password')]"
-					}
-				},
-				"connectVia": {
-					"referenceName": "IrOnpremSQL",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ls_looku_demo_source')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "SqlServer",
-				"typeProperties": {
-					"server": "[parameters('ls_looku_demo_source_properties_typeProperties_server')]",
-					"database": "[parameters('ls_looku_demo_source_properties_typeProperties_database')]",
-					"encrypt": "optional",
-					"trustServerCertificate": false,
-					"authenticationType": "SQL",
-					"userName": "[parameters('ls_looku_demo_source_properties_typeProperties_userName')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('ls_looku_demo_source_password')]"
-					}
-				},
-				"connectVia": {
-					"referenceName": "IrOnpremSQL",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ls_lookup')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "SqlServer",
-				"typeProperties": {
-					"server": "[parameters('ls_lookup_properties_typeProperties_server')]",
-					"database": "[parameters('ls_lookup_properties_typeProperties_database')]",
-					"encrypt": "optional",
-					"trustServerCertificate": false,
-					"authenticationType": "SQL",
-					"userName": "[parameters('ls_lookup_properties_typeProperties_userName')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('ls_lookup_password')]"
-					}
-				},
-				"connectVia": {
-					"referenceName": "IrOnpremSQL",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ls_lookup2')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "SqlServer",
-				"typeProperties": {
-					"server": "[parameters('ls_lookup2_properties_typeProperties_server')]",
-					"database": "[parameters('ls_lookup2_properties_typeProperties_database')]",
-					"encrypt": "optional",
-					"trustServerCertificate": false,
-					"authenticationType": "SQL",
-					"userName": "[parameters('ls_lookup2_properties_typeProperties_userName')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('ls_lookup2_password')]"
-					}
-				},
-				"connectVia": {
-					"referenceName": "IrOnpremSQL",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ls_lookup_demo')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "SqlServer",
-				"typeProperties": {
-					"server": "[parameters('ls_lookup_demo_properties_typeProperties_server')]",
-					"database": "[parameters('ls_lookup_demo_properties_typeProperties_database')]",
-					"encrypt": "optional",
-					"trustServerCertificate": false,
-					"authenticationType": "SQL",
-					"userName": "[parameters('ls_lookup_demo_properties_typeProperties_userName')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('ls_lookup_demo_password')]"
+						"value": "[parameters('SqlServer2_password')]"
 					}
 				},
 				"connectVia": {
