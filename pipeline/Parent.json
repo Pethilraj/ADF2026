@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "LK_from_watermark_tbl",
+				"name": "lk_watermark",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -17,12 +17,12 @@
 				"typeProperties": {
 					"source": {
 						"type": "SqlServerSource",
-						"sqlReaderQuery": "select tableschema,tablename,watermarkcolumn,lastloadvalue from dbo.adf_watermark_table",
+						"sqlReaderQuery": "SELECT TableSchema, TableName, WatermarkColumn, LastLoadValue FROM dbo.ADF_Watermark_Table",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
 					"dataset": {
-						"referenceName": "ds_onprem_server",
+						"referenceName": "SqlServerTable2",
 						"type": "DatasetReference"
 					},
 					"firstRowOnly": false
@@ -33,7 +33,7 @@
 				"type": "ForEach",
 				"dependsOn": [
 					{
-						"activity": "LK_from_watermark_tbl",
+						"activity": "lk_watermark",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -42,10 +42,10 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('LK_from_watermark_tbl').output.value",
+						"value": "@activity('lk_watermark').output.value",
 						"type": "Expression"
 					},
-					"isSequential": true,
+					"isSequential": false,
 					"activities": [
 						{
 							"name": "Execute Pipeline1",
@@ -56,7 +56,29 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"waitOnCompletion": true
+								"pipeline": {
+									"referenceName": "PL_CHILD_INCREMENTAL",
+									"type": "PipelineReference"
+								},
+								"waitOnCompletion": true,
+								"parameters": {
+									"tableschema": {
+										"value": "@item().TableSchema",
+										"type": "Expression"
+									},
+									"tablename": {
+										"value": "@item().tablename",
+										"type": "Expression"
+									},
+									"watermarkcolumn": {
+										"value": "@item().watermarkcolumn",
+										"type": "Expression"
+									},
+									"lastloadvalue": {
+										"value": "@item().lastloadvalue",
+										"type": "Expression"
+									}
+								}
 							}
 						}
 					]
