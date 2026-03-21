@@ -1,9 +1,16 @@
 {
 	"name": "DS_Sink_SqlServer_Adls_Parq_Migration",
 	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Sink_SqlServer_Adls_Parq_Migration",
+			"type": "LinkedServiceReference"
+		},
 		"annotations": [],
 		"type": "Parquet",
 		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation"
+			},
 			"compressionCodec": "snappy"
 		},
 		"schema": []
